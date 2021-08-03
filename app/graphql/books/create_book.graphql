@@ -1,0 +1,13 @@
+mutation($title: String!, $subtitle: String) {
+  book: record_create(
+    record: {
+      table: "book"
+      properties: [
+        { name: "title", value: $title }
+        { name: "subtitle", value: $subtitle }
+      ]
+    }
+  ) {
+    id
+  }
+}

@@ -1,0 +1,16 @@
+---
+slug: api/books
+method: post
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result = 'books/create_book', title: context.params.title, subtitle: context.params.subtitle
+  unless result.book
+    response_status 400
+  endunless
+%}
+
+{{ result }}

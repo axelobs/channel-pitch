@@ -1,0 +1,6 @@
+name: book
+properties:
+  - name: title
+    type: string
+  - name: subtitle
+    type: string
