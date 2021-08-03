@@ -21,7 +21,12 @@ You can find package.json under react-app. You need to add three new scripts:
 "layout": "cp ./build/index.html ../app/views/pages/index.html.liquid",
 "assets:remove": "rm -rf ../app/assets/web-app",
 "assets:copy": "mv ./build/ ../app/assets/web-app"
+```
 
+You can now use these scripts in your build script:
+
+```
+"build": "react-scripts build && npm run layout && npm run assets:remove && npm run assets:copy"
 ```
 
 ## npm tasks
