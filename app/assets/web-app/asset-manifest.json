@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/main.8fabe3fe.chunk.js",
-    "main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/main.8fabe3fe.chunk.js.map",
-    "runtime-main.js": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/runtime-main.29ca13a8.js",
-    "runtime-main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/runtime-main.29ca13a8.js.map",
-    "static/js/2.3a92358a.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.3a92358a.chunk.js",
-    "static/js/2.3a92358a.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.3a92358a.chunk.js.map",
-    "static/js/3.df9b4ba7.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/3.df9b4ba7.chunk.js",
-    "static/js/3.df9b4ba7.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/3.df9b4ba7.chunk.js.map",
-    "index.html": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.3a92358a.chunk.js.LICENSE.txt": "https://uploads.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.3a92358a.chunk.js.LICENSE.txt"
+    "main.css": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/main.b5cd4639.chunk.js",
+    "main.js.map": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/main.b5cd4639.chunk.js.map",
+    "runtime-main.js": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/runtime-main.ed513bbc.js",
+    "runtime-main.js.map": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/runtime-main.ed513bbc.js.map",
+    "static/js/2.dbeb058d.chunk.js": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.dbeb058d.chunk.js",
+    "static/js/2.dbeb058d.chunk.js.map": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.dbeb058d.chunk.js.map",
+    "static/js/3.3e94cc8b.chunk.js": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/3.3e94cc8b.chunk.js",
+    "static/js/3.3e94cc8b.chunk.js.map": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/3.3e94cc8b.chunk.js.map",
+    "index.html": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.dbeb058d.chunk.js.LICENSE.txt": "https://wispy-sun-870.staging.oregon.platform-os.com/instances/69be3668-9131-4b41-9b4b-5cc22d0ffe3b/assets/static/js/2.dbeb058d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.29ca13a8.js",
-    "static/js/2.3a92358a.chunk.js",
+    "static/js/runtime-main.ed513bbc.js",
+    "static/js/2.dbeb058d.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.8fabe3fe.chunk.js"
+    "static/js/main.b5cd4639.chunk.js"
   ]
 }
