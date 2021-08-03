@@ -1,4 +1,4 @@
-# Hello world app for platformOS
+# Channel program app with platformOS and react
 
 ## Usage
 
