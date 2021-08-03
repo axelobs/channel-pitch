@@ -1,23 +1,49 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+
 import './App.css';
 
+axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
+axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
+
 function App() {
+  const { register, handleSubmit, errors, formState } = useForm();
+
+  async function onSubmit(data) {
+    try {
+      const response = await axios.post('/api/books', data);
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Save a new book</h1>
+
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            name="title"
+            placeholder="Title"
+            ref={register({
+              required: 'Required',
+            })}
+          />
+          <label htmlFor="title">{errors.title && errors.title.message}</label>
+
+          <input name="subtitle" placeholder="Subtitle" ref={register()} />
+          <label htmlFor="subtitle">
+            {errors.subtitle && errors.subtitle.message}
+          </label>
+
+          <button type="submit" disabled={formState.isSubmitting}>
+            Save
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
