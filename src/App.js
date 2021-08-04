@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div>
-      <h1>Save a new book</h1>
+      <h1>CHANNEL PROGRAM</h1>
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
