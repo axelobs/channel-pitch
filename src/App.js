@@ -19,6 +19,17 @@ function App() {
     }
   }
 
+  async function fetchData() {
+    try {
+      const result = await axios.get('/api/books');
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  fetchData();
+
   return (
     <div>
       <h1>Save a new book</h1>
