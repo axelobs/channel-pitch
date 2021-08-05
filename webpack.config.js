@@ -18,7 +18,10 @@ const config = {
     contentBase: path.resolve(__dirname, 'app'),
     watchContentBase: true,
     writeToDisk: true,
-    open: true
+    open: true,
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
   },
   bail: true,
   stats: {
