@@ -57,3 +57,55 @@ a {
     transform: rotate(360deg);
   }
 }
+
+.nav-link a, .dropdown > a, .dropdown-item a{
+  color: #8b8b8b;
+  font-weight: 600;
+  font-size: 16px;
+  border-bottom: 2px solid #3d3d3d;
+  border-bottom-width: 0;
+}
+
+.nav-link.active a, .dropdown-item.active a{
+  color: #3d3d3d;
+  padding-bottom: 8px;
+}
+
+.nav-link.disabled a, .dropdown-item.disabled a{
+  color: #8b8b8b8a;
+}
+
+
+/* Desktop Rules (Bootstrap lg breakpoint)*/
+
+@media(min-width: 992px){
+  .nav-link{
+    margin: 0 20px;
+  }
+
+  .nav-link::after{
+    content: '';
+    margin-top: 8px;
+    border-bottom: 4px solid #3d3d3d80;
+    width: 0;
+    border-radius: 30px;
+    display: block;
+    transition: width 300ms ease-in-out, border-bottom 300ms ease-in-out;
+  }
+
+  .nav-link.active::after{
+    content: '';
+    border-bottom: 4px solid #3d3d3d;
+    width: 100%;
+    border-radius: 30px;
+    display: block;
+  }
+
+  .nav-link:not(.active, .dropdown-toggle):hover::after{
+    content: '';
+    border-bottom: 4px solid #3d3d3d80;
+    width: 50%;
+    border-radius: 30px;
+    display: block;
+  }
+}

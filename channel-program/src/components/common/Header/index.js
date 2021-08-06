@@ -1,43 +1,69 @@
 import React from 'react';
 
+//React-Bootstrap
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+
+//External Modules
 import { Link } from "react-router-dom";
+import Logo from '../Logo';
+
+//Styling
+import styles from './header.module.css'
 
 function Header() {
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <a className="navbar-brand" href><Link to="/">CHANNEL PROGRAM</Link></a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarColor03">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/">HOME</Link></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/register">ABOUT</Link></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/register">PITCH</Link></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/register">EPISODES</Link></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/register">CONTACT</Link></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href><Link to="/register">Register</Link></a>
-            </li>
-          </ul>
-          <form className="d-flex">
-            <input className="form-control me-sm-2" type="text" placeholder="Search" />
-            <button className="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+    <header className={styles.navContainer}>
+      <Navbar collapseOnSelect expand="lg" className="p-0">
+        <Container fluid className={`p-0 ${styles.navbarContent}`}>
+          <Navbar.Brand> 
+            <Logo style={{color: '#3d3d3d', fontWeight: '700', fontSize: '20px'}}/>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.menuTogglerContainer} />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className={`text-center ${styles.navItems}`}>
+              <Nav.Item>
+                <Nav.Link eventKey="home" as='div'>
+                  <Link to="/">HOME</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <NavDropdown title="ABOUT" id="collapsible-nav-dropdown">
+                <NavDropdown.Item eventKey="about" as="div" class="text-center" disabled>
+                  <Link to="/about-us">ABOUT US</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item eventKey="pitch" as="div" class="text-center" disabled>
+                  <Link to="/pitch">PITCH</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item eventKey="mcp" as="div" class="text-center" disabled>
+                  <Link to="/mychannelprogram">MYCHANNELPROGRAM</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item eventKey="directory" as="div" class="text-center" disabled>
+                  <Link to="/directory">DIRECTORY</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Item>
+                <Nav.Link eventKey="Contact" as='div'>
+                  <Link to="/contact">CONTACT</Link>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+            {/* <Nav>
+              <form className={`d-flex ${styles.searchContainer}`}>
+                <input className={`${styles.searchInput}`} type="text" placeholder="Search" />
+                <button className={`${styles.searchBtn}`} type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                    <path d="M20.5 6C12.515556 6 6 12.515562 6 20.5C6 28.484438 12.515556 35 20.5 35C23.773158 35 26.788919 33.893018 29.220703 32.050781L38.585938 41.414062 A 2.0002 2.0002 0 1 0 41.414062 38.585938L32.050781 29.220703C33.893017 26.788918 35 23.773156 35 20.5C35 12.515562 28.484444 6 20.5 6 z M 20.5 10C26.322685 10 31 14.677319 31 20.5C31 23.295711 29.914065 25.820601 28.148438 27.697266 A 2.0002 2.0002 0 0 0 27.701172 28.144531C25.824103 29.912403 23.29771 31 20.5 31C14.677315 31 10 26.322681 10 20.5C10 14.677319 14.677315 10 20.5 10 z"/>
+                  </svg>
+                </button>
+              </form>
+            </Nav> */}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
   )
 }
 

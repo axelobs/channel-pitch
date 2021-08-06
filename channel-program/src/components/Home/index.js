@@ -1,9 +1,10 @@
 import React from 'react';
+import Slider from '../common/Slider';
 
 function Home() {
   return (
     <div>
-      <h1>CHANNEL PROGRAM</h1>
+      <Slider />
     </div>
   );
 };

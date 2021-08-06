@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import $ from 'jquery';
 
 axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
 axios.defaults.xsrfHeaderName = 'X-CSRF-Token';

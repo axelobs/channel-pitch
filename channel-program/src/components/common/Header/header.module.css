@@ -1,0 +1,93 @@
+.navContainer{
+    padding: 30px;
+    background: #FBFBFB;
+}
+
+.navItems{
+    padding-top: 25px;
+}
+
+.menuTogglerContainer span{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%233d3d3d' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important;
+    width: 22px;
+    height: 22px;
+}
+
+.menuTogglerContainer{
+    border: none!important;
+    width: 24px;
+    height: 24px;
+    padding: 0!important;
+    box-shadow: none!important;
+}
+
+.searchContainer{
+    position: relative;
+    border: 2px solid #3e3e3e;
+    height: 50px;
+}
+
+.searchInput{
+    height: 48px;
+    width: 100%;
+    color: #3d3d3d;
+    border: none;
+    background: none;
+    box-shadow: none;
+    padding-left: 15px;
+    padding-right: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: 0;
+}
+
+.searchBtn{
+    height: 48px;
+    width: 48px;
+    fill: #3d3d3d;
+    background: none;
+    border: none;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+
+
+/* Tablet Rules (Bootstrap md breakpoint)*/
+
+@media(min-width: 768px){
+    .navContainer{
+        padding: 30px 40px ;
+    }
+}
+
+
+
+/* Desktop Rules (Bootstrap lg breakpoint)*/
+
+@media(min-width: 992px){
+    .navContainer{
+        padding: 30px 40px 10px;
+    }
+
+    .navbarContent{
+        flex-wrap: wrap!important;
+    }
+
+    .navbarContent > span{
+        flex: 0 0 auto;
+    }
+
+    .navbarContent > div{
+        flex: 0 0 100%!important;
+        margin: 0 auto;
+    }
+
+    .navItems{
+        margin: 0 auto;
+    }
+}

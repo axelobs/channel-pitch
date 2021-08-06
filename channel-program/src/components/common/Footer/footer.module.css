@@ -1,0 +1,107 @@
+.firstContainer{
+    padding: 60px 30px!important;
+    background: #d0d0d0;
+}
+
+.firstContainer > div{
+    text-align: center;
+}
+
+.firstContainer a{
+    color: #3d3d3d;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.firstContainer p{
+    color: #737373;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.socialLinksContainer{
+    justify-content: center;
+}
+
+.socialLink{
+    margin: 45px 18px 15px;
+}
+
+.socialLink svg{
+    stroke: #3d3d3d;
+    color: #3d3d3d;
+}
+
+.secondContainer{
+    padding: 30px!important;
+    background: #ebebeb;
+    text-align: center;
+}
+
+.secondContainer p, .secondContainer a{
+    font-size: 13px;
+    font-weight: 700;
+    color: #3d3d3d;
+}
+
+.secondContainer > div:first-child{
+    padding-bottom: 45px;
+    justify-content: space-evenly;
+}
+
+
+/* Tablet Rules (Bootstrap md breakpoint)*/
+
+@media(min-width: 768px){
+    .secondContainer{
+        text-align: left;
+    }
+
+    .secondContainer > div:first-child{
+        justify-content: flex-end;
+    }
+
+    .secondContainer > div:first-child a{
+        margin: 0 8px;
+    }
+}
+
+
+
+/* Desktop Rules (Bootstrap lg breakpoint)*/
+
+@media(min-width: 992px){
+    .firstContainer > div{
+        text-align: left;
+    }
+
+    .firstContainer a{
+        font-size: 42px;
+    }
+
+    .firstContainer p{
+        font-size: 16px;
+        max-width: 50ch;
+    }    
+
+    .firstContainer{
+        padding: 60px!important;
+    }
+
+    .secondContainer{
+        padding: 60px 60px 30px!important;
+    }
+
+    .secondContainer > div{
+        padding: 0!important;
+    }
+
+    .socialLinksContainer{
+        justify-content: flex-end;
+    }
+
+    .socialLink{
+        margin: 45px 22px 15px;
+    }
+}
