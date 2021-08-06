@@ -1,15 +1,32 @@
 import React from 'react'
-
 import styles from './slider.module.css'
+import {Link} from 'react-router-dom'
 
-export default function Slider(){
+// Bootstrap imports
+import Carousel from 'react-bootstrap/Carousel'
+
+
+export default function Slider({slides}){
+
 
     return(
         <div className={styles.sliderContainer}>
-            <img
-                src="https://via.placeholder.com/1000x1920.jpg/124eb5/124eb5?text=+"
-                role="presentation"
-            />
+            <Carousel className={styles.slider} interval='50000'>
+                {slides.map(slide => (
+                    <Carousel.Item key={slide.imgAlt}>
+                        <img
+                            className="d-block w-100"
+                            src={slide.url}
+                            alt={slide.imgAlt}
+                        />
+                        <Carousel.Caption>
+                            <h2 className={styles.slideTitle}>{slide.title}</h2>
+                            <p className={styles.slideTxt}>{slide.description}</p>
+                            <Link className={styles.slideBtn} to={slide.path}>{slide.buttonText}</Link>
+                        </Carousel.Caption>
+                    </Carousel.Item>    
+                ))}
+            </Carousel>
         </div>
     )
 }

@@ -58,7 +58,8 @@ a {
   }
 }
 
-.nav-link a, .dropdown > a, .dropdown-item a{
+/* Nav styling */
+.nav-link:not(.dropdown-toggle) a, .dropdown > a:not(.dropdown-toggle), .dropdown-item a{
   color: #8b8b8b;
   font-weight: 600;
   font-size: 16px;
@@ -66,24 +67,70 @@ a {
   border-bottom-width: 0;
 }
 
-.nav-link.active a, .dropdown-item.active a{
+.nav-link:not(.dropdown-toggle).active a, .dropdown-item.active a{
   color: #3d3d3d;
   padding-bottom: 8px;
 }
 
-.nav-link.disabled a, .dropdown-item.disabled a{
+.nav-link:not(.dropdown-toggle).disabled a, .dropdown-item.disabled a{
   color: #8b8b8b8a;
 }
 
+/* Carousel styling */
+.carousel-inner, .carousel-item{
+  height: 625px;
+}
 
-/* Desktop Rules (Bootstrap lg breakpoint)*/
+.carousel-caption{
+  bottom: 50px!important;
+}
+
+.carousel-indicators > button{
+  border-radius: 50%!important;
+  width: 10px!important;
+  height: 10px!important;
+  background: #ccc!important;
+  border: none!important;
+}
+
+.carousel-indicators > button.active{
+  background: #3e3e3e!important;
+}
+
+.carousel-control-prev, .carousel-control-next{
+  display: none!important;
+}
+
+/* ---------- Tablet Rules (Bootstrap md breakpoint) ---------- */
+
+@media(min-width: 768px){
+  .carousel-caption{
+    bottom: 35%!important;
+  }
+
+  .carousel-control-prev, .carousel-control-next{
+    display: flex!important;
+    color: #3d3d3d!important;
+    opacity: .75!important;
+  }
+  .carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233d3d3d'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")!important;
+  }
+  .carousel-control-next-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233d3d3d'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")!important;
+  }
+}
+/* ---------- Desktop Rules (Bootstrap lg breakpoint) ---------- */
 
 @media(min-width: 992px){
+
+
+  /* Nav styling */
   .nav-link{
     margin: 0 20px;
   }
 
-  .nav-link::after{
+  .nav-link:not(.dropdown-toggle)::after{
     content: '';
     margin-top: 8px;
     border-bottom: 4px solid #3d3d3d80;
@@ -93,7 +140,7 @@ a {
     transition: width 300ms ease-in-out, border-bottom 300ms ease-in-out;
   }
 
-  .nav-link.active::after{
+  .nav-link:not(.dropdown-toggle).active::after{
     content: '';
     border-bottom: 4px solid #3d3d3d;
     width: 100%;
@@ -108,4 +155,11 @@ a {
     border-radius: 30px;
     display: block;
   }
+
+
+  /* Carousel styling */
+  .carousel-caption{
+    bottom: 35%!important;
+  }
+  
 }
