@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 
 //React-Bootstrap
 import Container from 'react-bootstrap/Container'
@@ -7,13 +8,13 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
 //External Modules
-import { Link } from "react-router-dom";
 import Logo from '../Logo';
 
 //Styling
 import styles from './header.module.css'
 
 function Header() {
+  let location = useLocation();
 
   return (
     <header className={styles.navContainer}>
@@ -24,28 +25,28 @@ function Header() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.menuTogglerContainer} />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className={`text-center ${styles.navItems}`}>
+            <Nav className={`text-center ${styles.navItems}`} activeKey={location.pathname}>
               <Nav.Item>
-                <Nav.Link eventKey="home" as='div'>
+                <Nav.Link eventKey="/" as='div'>
                   <Link to="/">HOME</Link>
                 </Nav.Link>
               </Nav.Item>
-              <NavDropdown title="ABOUT" id="collapsible-nav-dropdown">
-                <NavDropdown.Item eventKey="about" as="div" class="text-center" disabled>
+              <NavDropdown title="ABOUT" id="collapsible-nav-dropdown" className={styles.dropdownToggle}>
+                <NavDropdown.Item eventKey="/about" as="div" className="text-center" disabled>
                   <Link to="/about-us">ABOUT US</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item eventKey="pitch" as="div" class="text-center" disabled>
+                <NavDropdown.Item eventKey="/pitch" as="div" className="text-center" disabled>
                   <Link to="/pitch">PITCH</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item eventKey="mcp" as="div" class="text-center" disabled>
+                <NavDropdown.Item eventKey="/mcp" as="div" className="text-center" disabled>
                   <Link to="/mychannelprogram">MYCHANNELPROGRAM</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item eventKey="directory" as="div" class="text-center" disabled>
+                <NavDropdown.Item eventKey="/directory" as="div" className="text-center" disabled>
                   <Link to="/directory">DIRECTORY</Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Item>
-                <Nav.Link eventKey="Contact" as='div'>
+                <Nav.Link eventKey="/contact" as='div'>
                   <Link to="/contact">CONTACT</Link>
                 </Nav.Link>
               </Nav.Item>
