@@ -1,0 +1,20 @@
+name: event
+properties:
+  - name: zoom_id
+    type: integer
+  - name: title
+    type: string
+  - name: subtitle
+    type: string
+  - name: description
+    type: string
+  - name: date
+    type: datetime
+  - name: limit
+    type: integer
+  - name: episode
+    type: integer
+  - name: created_at
+    type: datetime
+  - name: created_by
+    type: string

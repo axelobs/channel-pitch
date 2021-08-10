@@ -1,0 +1,24 @@
+name: user
+properties:
+  - name: name
+    type: string
+  - name: email
+    type: string
+  - name: phone
+    type: integer
+  - name: phone1
+    type: integer
+  - name: address
+    type: string
+  - name: city
+    type: string
+  - name: state
+    type: string
+  - name: country
+    type: string
+  - name: type
+    type: string
+  - name: media
+    type: string
+  - name: company
+    type: string

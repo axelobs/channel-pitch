@@ -1,0 +1,30 @@
+name: company
+properties:
+  - name: name
+    type: string
+  - name: url
+    type: string
+  - name: phone
+    type: integer
+  - name: phone1
+    type: integer
+  - name: address
+    type: string
+  - name: city
+    type: string
+  - name: state
+    type: string
+  - name: country
+    type: string
+  - name: type
+    type: string
+  - name: size
+    type: integer
+  - name: employees_total
+    type: integer
+  - name: end_point_total
+    type: integer
+  - name: description
+    type: string
+  - name: channel
+    type: string
