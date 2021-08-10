@@ -1,0 +1,6 @@
+name: product
+properties:
+  - name: product_id
+    type: integer
+  - name: product_name
+    type: string

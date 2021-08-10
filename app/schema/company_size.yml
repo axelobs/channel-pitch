@@ -1,0 +1,6 @@
+name: company_size
+properties:
+  - name: company_size_id
+    type: integer
+  - name: company_size_name
+    type: string
