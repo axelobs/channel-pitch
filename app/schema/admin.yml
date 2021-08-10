@@ -1,0 +1,12 @@
+name: admin
+properties:
+  - name: admin_id
+    type: integer
+  - name: admin_type_id
+    type: integer
+  - name: admin_email_address
+    type: string
+  - name: admin_name
+    type: string
+  - name: admin_created_at
+    type: datetime

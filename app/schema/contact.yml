@@ -1,0 +1,18 @@
+name: contact
+properties:
+  - name: contact_id
+    type: string
+  - name: contact_name
+    type: string
+  - name: contact_type
+    type: string
+  - name: contact_phone
+    type: integer
+  - name: contact_email
+    type: string
+  - name: contact_description
+    type: string
+  - name: status
+    type: string
+  - name: contact_created_at
+    type: datetime

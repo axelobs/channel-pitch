@@ -1,0 +1,22 @@
+name: cp
+properties:
+  - name: cp_id
+    type: integer
+  - name: cp_name
+    type: string
+  - name: cp_url
+    type: string
+  - name: cp_phone1
+    type: integer
+  - name: cp_phone2
+    type: integer
+  - name: cp_address
+    type: string
+  - name: cp_city
+    type: string
+  - name: cp_state
+    type: string
+  - name: cp_country
+    type: string
+  - name: cp_updated_at
+    type: datetime

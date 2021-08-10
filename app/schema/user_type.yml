@@ -1,0 +1,8 @@
+name: user_type
+properties:
+  - name: user_type_id
+    type: integer
+  - name: user_type_name
+    type: string
+  - name: user_type_description
+    type: string

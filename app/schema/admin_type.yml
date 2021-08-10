@@ -1,0 +1,8 @@
+name: admin_type
+properties:
+  - name: admin_type_id
+    type: integer
+  - name: admin_type_name
+    type: string
+  - name: admin_type_description
+    type: string
