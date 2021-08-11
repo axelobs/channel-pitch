@@ -20,19 +20,21 @@ function Register() {
   async function fetchData() {
     try {
       const result = await axios.get('/api/books');
-      console.log(result.data);
+      console.log(result);
     } catch (error) {
       console.error(error);
     }
   }
 
   fetchData();
+
   return (
     <div className="container-fluid">
       <div className="row p-0">
         <div className="col d-flex flex-column justify-content-center align-items-center p-5">
           <h1>CREATE AN ACCOUNT</h1>
           <p>Already a user?</p>
+
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="row">
                 <div className="col">
@@ -84,9 +86,10 @@ function Register() {
               </div>
               <div className="row">
                 <div className="col">
-                  <button type="submit" className="btn btn-primary btn-block mt-3" disabled={formState.isSubmitting}>
+                  <button type="submit" className="btn btn-primary btn-block mt-3 w-100" disabled={formState.isSubmitting}>
                     Sign up
                   </button>
+                  <button onClick={fetchData} className="btn btn-secondary btn-block mt-3 w-100">Get records</button>
                 </div>
               </div>
           </form>

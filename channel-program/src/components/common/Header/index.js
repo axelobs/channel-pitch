@@ -20,7 +20,7 @@ function Header() {
     <header className={styles.navContainer}>
       <Navbar collapseOnSelect expand="lg" className="p-0">
         <Container fluid className={`p-0 ${styles.navbarContent}`}>
-          <Navbar.Brand> 
+          <Navbar.Brand>
             <Logo style={{color: '#3d3d3d', fontWeight: '700', fontSize: '20px'}}/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.menuTogglerContainer} />
@@ -43,6 +43,9 @@ function Header() {
                 </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/directory" as="div" className="text-center" disabled>
                   <Link to="/directory">DIRECTORY</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item eventKey="/directory" as="div" className="text-center">
+                  <Link to="/register">REGISTER</Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Item>
