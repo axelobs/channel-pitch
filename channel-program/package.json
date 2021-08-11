@@ -23,9 +23,9 @@
     "build": "react-scripts build && npm run layout && npm run assets:remove && npm run assets:copy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "layout": "cp ./build/index.html ../app/views/pages/index.html.liquid",
-    "assets:remove": "rm -rf ../app/assets/web-app",
-    "assets:copy": "mv ./build/ ../app/assets/web-app"
+    "layout": "shx cp ./build/index.html ../app/views/pages/index.html.liquid",
+    "assets:remove": "shx rm -rf ../app/assets/web-app",
+    "assets:copy": "shx mv ./build/ ../app/assets/web-app"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +49,7 @@
     "styled-components": "^5"
   },
   "devDependencies": {
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "shx": "^0.3.3"
   }
 }
