@@ -7,8 +7,6 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 export default function Slider({slides}){
-
-
     return(
         <div className={styles.sliderContainer}>
             <Carousel className={styles.slider} interval='50000'>
@@ -24,7 +22,7 @@ export default function Slider({slides}){
                             <p className={styles.slideTxt}>{slide.description}</p>
                             <Link className={styles.slideBtn} to={slide.path}>{slide.buttonText}</Link>
                         </Carousel.Caption>
-                    </Carousel.Item>    
+                    </Carousel.Item>
                 ))}
             </Carousel>
         </div>

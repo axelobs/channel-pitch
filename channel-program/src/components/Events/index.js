@@ -1,5 +1,9 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import Slider from '../common/Slider';
+import Filters from './Filters';
+import Episode from './Episode';
 
 function Events() {
   let slides = [
@@ -13,6 +17,23 @@ function Events() {
   return (
     <div>
       <Slider slides={slides}/>
+      <Container>
+        <h2 className="pt-3 pb-3">Previous Events</h2>
+      </Container>
+      <Filters/>
+      <Container>
+        <Row>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+          <Episode/>
+        </Row>
+      </Container>
     </div>
   );
 };
