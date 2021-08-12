@@ -16,5 +16,5 @@ properties:
     type: integer
   - name: created_at
     type: datetime
-  - name: created_by_id # relation to admin table
+  - name: created_by # relation to admin table
     type: string

@@ -1,0 +1,14 @@
+mutation($event_id: String, $attendant_id: String, $joined: Boolean) {
+  event_attendance: record_create(
+    record: {
+      table: "event_attendance"
+      properties: [
+        { name: "event_id", value: $event_id }
+        { name: "attendant_id", value: $attendant_id }
+        { name: "joined", value: $joined }
+      ]
+    }
+  ) {
+    id
+  }
+}
