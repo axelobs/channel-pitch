@@ -44,6 +44,9 @@ function Header() {
                 <NavDropdown.Item eventKey="/directory" as="div" className="text-center" disabled>
                   <Link to="/directory">DIRECTORY</Link>
                 </NavDropdown.Item>
+                <NavDropdown.Item eventKey="/events" as="div" className="text-center">
+                  <Link to="/events">EVENTS</Link>
+                </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/directory" as="div" className="text-center">
                   <Link to="/register">REGISTER</Link>
                 </NavDropdown.Item>

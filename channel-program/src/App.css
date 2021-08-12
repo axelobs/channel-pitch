@@ -37,8 +37,8 @@
 
 input {
   border: none;
-  box-shadow: 2px 2px 2px rgb(213, 213, 213);
   margin: 10px;
+  border-radius: 0;
 }
 
 .collapse.navbar-collapse {
@@ -161,5 +161,5 @@ a {
   .carousel-caption{
     bottom: 35%!important;
   }
-  
+
 }

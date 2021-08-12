@@ -3,6 +3,8 @@
     width: 100vw;
     height: 625px;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .sliderContainer img{
