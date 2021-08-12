@@ -10,7 +10,6 @@ function Episode() {
     <Col className="mt-3 mb-3">
       <Card style={{ width: '25rem', border: 'none' }}>
         <Card.Img variant="top" src="https://via.placeholder.com/450x250?text=300x250+MPU" />
-
         <Card.Body>
           <p><small>Category Name | 01/06/2021</small></p>
           <Card.Title>Lorem ipsum dolor sit amet, consectetur.</Card.Title>
