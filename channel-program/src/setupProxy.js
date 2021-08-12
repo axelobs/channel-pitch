@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://wispy-sun-870.staging.oregon.platform-os.com/',
+      target: process.env.REACT_APP_POS_PROXY,
       secure: false,
       changeOrigin: true,
     })

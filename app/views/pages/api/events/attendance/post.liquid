@@ -1,0 +1,16 @@
+---
+slug: api/events/attendance
+method: post
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result = 'events/attendance/create_event_attendance', event_id: context.params.event_id, attendant_id: context.params.attendant_id
+  unless result.event_attendance
+    response_status 400
+  endunless
+%}
+
+{{ result }}

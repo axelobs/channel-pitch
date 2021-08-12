@@ -10,7 +10,7 @@ function Register() {
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post('/api/books', data);
+      const response = await axios.post('/api/events/attendance', data);
       console.log(response);
     } catch (err) {
       console.error(err);
@@ -26,7 +26,7 @@ function Register() {
     }
   }
 
-  fetchData();
+  //fetchData();
 
   return (
     <div className="container-fluid">
@@ -43,7 +43,7 @@ function Register() {
                     name="title"
                     placeholder="First Name"
                     autoComplete="off"
-                    {...register("title", {
+                    {...register("event_id", {
                       required: "Required",
                     })}
                   />
@@ -54,7 +54,7 @@ function Register() {
                     name="subtitle"
                     placeholder="Last Name"
                     autoComplete="off"
-                    {...register("subtitle", {
+                    {...register("attendant_id", {
                       required: "Required",
                     })}
                   />
