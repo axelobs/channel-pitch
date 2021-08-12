@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/main.9eae8afe.chunk.css",
-    "main.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/main.9345ba13.chunk.js",
-    "main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/main.9345ba13.chunk.js.map",
-    "runtime-main.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/runtime-main.f1d114dc.js",
-    "runtime-main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/runtime-main.f1d114dc.js.map",
+    "main.css": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/main.bb06e493.chunk.css",
+    "main.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/main.95e518e3.chunk.js",
+    "main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/main.95e518e3.chunk.js.map",
+    "runtime-main.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/runtime-main.ce706fb4.js",
+    "runtime-main.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/runtime-main.ce706fb4.js.map",
     "static/css/2.3ab4f688.chunk.css": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/2.3ab4f688.chunk.css",
-    "static/js/2.20056532.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.20056532.chunk.js",
-    "static/js/2.20056532.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.20056532.chunk.js.map",
-    "static/js/3.28bbdd8c.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/3.28bbdd8c.chunk.js",
-    "static/js/3.28bbdd8c.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/3.28bbdd8c.chunk.js.map",
+    "static/js/2.48d105e8.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.48d105e8.chunk.js",
+    "static/js/2.48d105e8.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.48d105e8.chunk.js.map",
+    "static/js/3.b7ee7481.chunk.js": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/3.b7ee7481.chunk.js",
+    "static/js/3.b7ee7481.chunk.js.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/3.b7ee7481.chunk.js.map",
     "index.html": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/index.html",
     "static/css/2.3ab4f688.chunk.css.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/2.3ab4f688.chunk.css.map",
-    "static/css/main.9eae8afe.chunk.css.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/main.9eae8afe.chunk.css.map",
-    "static/js/2.20056532.chunk.js.LICENSE.txt": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.20056532.chunk.js.LICENSE.txt"
+    "static/css/main.bb06e493.chunk.css.map": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/css/main.bb06e493.chunk.css.map",
+    "static/js/2.48d105e8.chunk.js.LICENSE.txt": "https://uploads.staging.oregon.platform-os.com/instances/6006/assets/web-app/static/js/2.48d105e8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f1d114dc.js",
+    "static/js/runtime-main.ce706fb4.js",
     "static/css/2.3ab4f688.chunk.css",
-    "static/js/2.20056532.chunk.js",
-    "static/css/main.9eae8afe.chunk.css",
-    "static/js/main.9345ba13.chunk.js"
+    "static/js/2.48d105e8.chunk.js",
+    "static/css/main.bb06e493.chunk.css",
+    "static/js/main.95e518e3.chunk.js"
   ]
 }

@@ -4,18 +4,20 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import styles from './filter.module.css';
+
 function Filters() {
   return (
     <>
-      <Container fluid className='bg-light p-4'>
+      <Container fluid className='bg-light m-0 p-0 p-4'>
         <Container>
           <Form>
-            <Row>
+            <Row className="p-0 m-0">
               <Col>
-                <Form.Control placeholder="Search pitch" />
+                <Form.Control className={styles.input} placeholder="Search pitch" />
               </Col>
               <Col>
-                <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
+                <Form.Select className={styles.inputSelect} id="inlineFormCustomSelect">
                   <option value="0">Category</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -23,7 +25,7 @@ function Filters() {
                 </Form.Select>
               </Col>
               <Col>
-                <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
+                <Form.Select className={styles.inputSelect} id="inlineFormCustomSelect">
                   <option value="0">Category</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -31,7 +33,7 @@ function Filters() {
                 </Form.Select>
               </Col>
               <Col>
-                <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
+                <Form.Select className={styles.inputSelect} id="inlineFormCustomSelect">
                   <option value="0">Category</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
