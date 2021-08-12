@@ -78,7 +78,7 @@ a {
 
 /* Carousel styling */
 .carousel-inner, .carousel-item{
-  height: 625px;
+  height: calc(100vh - 100px);
 }
 
 .carousel-caption{
@@ -106,6 +106,10 @@ a {
 @media(min-width: 768px){
   .carousel-caption{
     bottom: 35%!important;
+  }
+
+  .carousel-inner, .carousel-item{
+    height: 625px;
   }
 
   .carousel-control-prev, .carousel-control-next{

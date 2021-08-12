@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from './slider.module.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-// Bootstrap imports
 import Carousel from 'react-bootstrap/Carousel'
 
 

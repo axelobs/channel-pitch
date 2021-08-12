@@ -1,0 +1,35 @@
+.pitchCard{
+    text-align: center;
+    width: 100%;
+}
+
+.pitchCard p{
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+.pitchCard h3{
+    color: #3d3d3d;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.pitchCard video{
+    max-width: 100%;
+}
+
+.pitchBtn{
+    display: block;
+    margin: 0 auto;
+    color: #fcfcfc;
+    background: #3c3c3c;
+    max-width: 50%;
+    padding: 15px 35px;
+    transition: transform 300ms ease;
+    transform: scale(1);
+}
+
+.pitchBtn:hover{
+    color: #fcfcfc;
+    transform: scale(1.1);
+}
