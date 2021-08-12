@@ -1,0 +1,8 @@
+name: event_attendance
+properties:
+  - name: event_id
+    type: string # relation to event table
+  - name: attendant_id
+    type: string # relation to user table
+  - name: joined
+    type: boolean
