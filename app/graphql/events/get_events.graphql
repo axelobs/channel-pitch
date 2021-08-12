@@ -1,0 +1,14 @@
+query event($id: ID) {
+  events: records(
+    per_page: 20,
+    filter: {
+      table: { value: "event" },
+      id: { value: $id }
+    }
+  ) {
+    results {
+      id
+      properties
+    }
+  }
+}
