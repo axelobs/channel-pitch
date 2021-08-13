@@ -18,3 +18,4 @@ properties:
     type: datetime
   - name: created_by # relation to admin table
     type: string
+    belongs_to: admin

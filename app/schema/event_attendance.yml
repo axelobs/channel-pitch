@@ -2,7 +2,9 @@ name: event_attendance
 properties:
   - name: event_id
     type: string # relation to event table
+    belongs_to: event
   - name: attendant_id
     type: string # relation to user table
+    belongs_to: user
   - name: joined
     type: boolean
