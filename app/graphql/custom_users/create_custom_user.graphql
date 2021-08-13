@@ -1,0 +1,13 @@
+mutation($name: String!, $email: String) {
+  user: record_create(
+    record: {
+      table: "user"
+      properties: [
+        { name: "name", value: $name }
+        { name: "email", value: $email }
+      ]
+    }
+  ) {
+    id
+  }
+}

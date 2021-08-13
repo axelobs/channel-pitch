@@ -1,0 +1,6 @@
+properties:
+  - name: phone1
+    type: string
+  - name: country_id
+    type: string
+    belongs_to: country

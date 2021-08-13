@@ -1,0 +1,6 @@
+name: country
+properties:
+  - name: country_id
+    type: string
+  - name: country_name
+    type: string
