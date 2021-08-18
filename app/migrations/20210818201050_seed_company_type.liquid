@@ -1,0 +1,11 @@
+{% comment %} seed_company_type GraphQL queries go below {% endcomment %}
+{% liquid
+  graphql result_create = 'company/create_company_type', type_id: 1, description: "Vendor", acronyms: "VENDOR"
+  log result_create, type: 'debug'
+
+  graphql result_create = 'company/create_company_type', type_id: 2, description: "IT Service Providor", acronyms: "ITSP"
+  log result_create, type: 'debug'
+
+  graphql result_create = 'company/create_company_type', type_id: 3, description: "MSP", acronyms: "MSP"
+  log result_create, type: 'debug'
+%}
