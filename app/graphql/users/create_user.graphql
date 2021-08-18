@@ -7,7 +7,7 @@ mutation CreateUser($name: String!, $email: String!, $password: String!, $phone1
       { name: "phone1", value: $phone1 },
       { name: "country_id", value: $country },
       { name: "company", value: $company },
-      { name: "cp_terms_consent", value: $cp_terms_consent }
+      { name: "cp_terms_consent", value_boolean: $cp_terms_consent }
     ]
   }) {
     id

@@ -1,4 +1,4 @@
-mutation($title: String!, $subtitle: String, $description: String, $limit: Int, $created_by_id: String, $date: ISO8601DateTime) {
+mutation CreateEvent($title: String!, $subtitle: String, $description: String, $limit: Int, $created_by_id: String, $date: ISO8601DateTime) {
   event: record_create(
     record: {
       table: "event"
@@ -6,7 +6,7 @@ mutation($title: String!, $subtitle: String, $description: String, $limit: Int, 
         { name: "title", value: $title }
         { name: "subtitle", value: $subtitle }
         { name: "description", value: $description }
-        { name: "limit", value: $limit }
+        { name: "limit", value_int: $limit }
         { name: "created_by_id", value: $created_by_id }
         { name: "date", value: $date }
         { name: "created_at", value: "now()" }

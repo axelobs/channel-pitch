@@ -1,6 +1,6 @@
 name: company_type
 properties:
-  - name: company_id
-    type: integer
-  - name: company_name
+  - name: description
+    type: string
+  - name: acronyms
     type: string

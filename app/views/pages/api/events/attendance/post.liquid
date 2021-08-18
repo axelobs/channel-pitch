@@ -64,8 +64,7 @@ response_headers: >
     assign result_create = '{}' | parse_json
   endif
 
-  assign result_create = result_create | add_hash_key: "success", true
-  
+  assign result_create = result_create | add_hash_key: "success", true  
   unless overallSuccess
     response_status 200
     assign result_create = result_create | add_hash_key: "success", false

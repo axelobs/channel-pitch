@@ -1,0 +1,22 @@
+---
+slug: api/contacts
+method: post
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result_create = 'contacts/create_contact', name: context.params.name, type_id: context.params.type_id, phone: context.params.phone, email: context.params.email, message: context.params.message
+
+  comment TODO: send to zoho 
+  endcomment
+
+  assign result_create = result_create | add_hash_key: "success", true  
+  unless result_create
+    response_status 200
+    assign result_create = result_create | add_hash_key: "success", false
+  endunless
+%}
+
+{{- result_create }}
