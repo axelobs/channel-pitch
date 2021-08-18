@@ -1,0 +1,14 @@
+mutation CreateCompanyType($type_id: Int!, $description: String!, $acronyms: String) {
+  company_type: record_create(
+    record: {
+      table: "company_type"
+      properties: [
+        { name: "type_id", value_int: $type_id }
+        { name: "description", value: $description }
+        { name: "acronyms", value: $acronyms }
+      ]
+    }
+  ) {
+    id
+  }
+}

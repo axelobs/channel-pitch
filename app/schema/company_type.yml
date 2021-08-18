@@ -1,5 +1,7 @@
 name: company_type
 properties:
+  - name: type_id
+    type: integer
   - name: description
     type: string
   - name: acronyms
