@@ -1,14 +1,14 @@
-mutation CreateContact($name: String!, $type_id: Int, $phone: String, $email: String, $message: String, $status: Int = 1) {
+mutation CreateContact($name: String!, $type_id: Int, $phone: String, $email: String!, $message: String, $status: Int = 1) {
   contact: record_create(
     record: {
       table: "contact"
       properties: [
         { name: "name", value: $name }
-        { name: "type_id", value: $type_id }
+        { name: "type_id", value_int: $type_id }
         { name: "phone", value: $phone }
         { name: "email", value: $email }
         { name: "message", value: $message }
-        { name: "status", value: $status }
+        { name: "status", value_int: $status }
       ]
     }
   ) {

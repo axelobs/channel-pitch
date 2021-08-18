@@ -6,7 +6,7 @@ mutation CreateEvent($title: String!, $subtitle: String, $description: String, $
         { name: "title", value: $title }
         { name: "subtitle", value: $subtitle }
         { name: "description", value: $description }
-        { name: "limit", value: $limit }
+        { name: "limit", value_int: $limit }
         { name: "created_by_id", value: $created_by_id }
         { name: "date", value: $date }
         { name: "created_at", value: "now()" }
