@@ -22,7 +22,8 @@ response_headers: >
   if userid == null
     log "Need to create the user", type: 'debug'
     assign terms_consent = false
-    if context.params.terms_consent | titleize == "True"
+    assign titleized_param_terms_consent = context.params.terms_consent | titleize
+    if titleized_param_terms_consent == "True"
       assign terms_consent = true
     endif
     graphql result_createUser = 'users/create_user', email: context.params.user_email, name: context.params.user_name, password: context.params.user_pass, company: context.params.company, cp_terms_consent: terms_consent
