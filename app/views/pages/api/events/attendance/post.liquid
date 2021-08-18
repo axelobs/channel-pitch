@@ -1,5 +1,5 @@
 ---
-slug: api/events/attendance
+slug: api/v1/events/:id/attendance
 method: post
 layout: ''
 response_headers: >
@@ -7,10 +7,61 @@ response_headers: >
 ---
 
 {% liquid
-  graphql result = 'events/attendance/create_event_attendance', event_id: context.params.event_id, attendant_id: context.params.attendant_id
-  unless result.event_attendance
-    response_status 400
+  assign userid = -1
+
+  graphql result_usersByEmail = 'users/get_users', email: context.params.email
+  log result_usersByEmail, type: 'debug'
+  if result_usersByEmail.users.results.size > 0
+    log "Found the user", type: 'debug'
+    assign userid = result_usersByEmail.users.results[0].id
+    log userid, type: 'debug'
+  else
+    log "Didn't find the user", type: 'debug'
+  endif
+
+  if userid < 0
+    log "Need to create the user", type: 'debug'
+    graphql result_createUser = 'users/create_user', email: context.params.user_email, name: context.params.user_name, password: context.params.user_pass, company: context.params.company, cp_terms_consent: context.params.terms_consent
+    log result_createUser, type: 'debug'
+    assign userid = result_createUser.user_create.id
+  endif
+
+  assign userHandlingSuccess = false
+  if userid > 0
+    assign userHandlingSuccess = true
+  endif
+  assign messages = "" | split: ','
+
+  if userHandlingSuccess == false
+    assign message = "There is a problem creating your user record, please try again later"
+    assign messages = messages | push: message
+  endif
+
+  graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: userid
+  log result_create, type: 'debug'
+  
+  assign createEventAttendanceSuccess = false
+  if result_create.event_attendance != null
+    assign createEventAttendanceSuccess = true
+  endif
+
+  if createEventAttendanceSuccess == false
+    assign message = "There is a problem creating your event attendance record, please try again later"
+    assign messages = messages | push: message
+  endif
+
+  assign overallSuccess = false
+  if userHandlingSuccess and createEventAttendanceSuccess
+    assign overallSuccess = true
+  endif
+
+  assign result_create.success = true
+  
+  unless overallSuccess
+    response_status 200
+    assign result_create.success = false
+    assign result_create.messages = messages
   endunless
 %}
 
-{{ result }}
+{{ result_create }}
