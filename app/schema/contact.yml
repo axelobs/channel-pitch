@@ -1,18 +1,15 @@
 name: contact
 properties:
-  - name: contact_id
+  - name: name
     type: string
-  - name: contact_name
-    type: string
-  - name: contact_type
-    type: string
-  - name: contact_phone
+  - name: type_id
     type: integer
-  - name: contact_email
+    belongs_to: company_type
+  - name: phone
     type: string
-  - name: contact_description
+  - name: email
+    type: string
+  - name: message
     type: string
   - name: status
-    type: string
-  - name: contact_created_at
-    type: datetime
+    type: integer

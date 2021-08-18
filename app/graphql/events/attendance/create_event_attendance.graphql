@@ -1,4 +1,4 @@
-mutation($event_id: String, $attendant_id: String, $joined: Boolean) {
+mutation CreateEventAttendance($event_id: String, $attendant_id: String, $joined: Boolean) {
   event_attendance: record_create(
     record: {
       table: "event_attendance"
