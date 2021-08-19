@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
+import Logo from '../Logo';
+import styles from './header.module.css'
 
 //React-Bootstrap
 import Container from 'react-bootstrap/Container'
@@ -7,21 +9,44 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-//External Modules
-import Logo from '../Logo';
+const aboutPages = ['/about-us', '/pitch', '/mychannelprogram', '/directory', '/events', '/register']
 
-//Styling
-import styles from './header.module.css'
-
-function Header() {
+export default function Header() {
+  const [show, setShow] = useState(false)
+  const [activeMenu, setActiveMenu] = useState(false)
   let location = useLocation();
+
+  function getPage(pathname) {
+    if(pathname === '/'){
+      setShow(false)
+      setActiveMenu(false)
+      return
+    }
+    if (aboutPages.includes(pathname)) {
+      setShow(true)
+      setActiveMenu(true)
+      return
+    }
+    setShow(false)
+    setActiveMenu(false)
+    return
+  }
+
+  function hideDropdown(){
+    if(aboutPages.includes(location.pathname)){
+      return
+    }
+    return setShow(false)
+  }
+
+  useMemo(() => getPage(location.pathname), [location.pathname])
 
   return (
     <header className={styles.navContainer}>
       <Navbar collapseOnSelect expand="lg" className="p-0">
         <Container fluid className={`p-0 ${styles.navbarContent}`}>
           <Navbar.Brand>
-            <Logo style={{color: '#3d3d3d', fontWeight: '700', fontSize: '20px'}}/>
+            <Logo style={{ color: '#3d3d3d', fontWeight: '700', fontSize: '20px' }} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" className={styles.menuTogglerContainer} />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -31,24 +56,33 @@ function Header() {
                   <Link to="/">HOME</Link>
                 </Nav.Link>
               </Nav.Item>
-              <NavDropdown title="ABOUT" id="collapsible-nav-dropdown" className={styles.dropdownToggle}>
-                <NavDropdown.Item eventKey="/about" as="div" className="text-center" disabled>
-                  <Link to="/about-us">ABOUT US</Link>
+              <NavDropdown
+                title="ABOUT"
+                id="collapsible-nav-dropdown"
+                className={styles.dropdownToggle}
+                active={activeMenu}
+                renderMenuOnMount
+                show={window.innerWidth >= 992 ? show : true}
+                onMouseEnter={() => setShow(true)} 
+                onMouseLeave={hideDropdown}
+              >
+                <NavDropdown.Item eventKey="/about-us" as="div" className="text-center">
+                  <Link to="/about-us">About Us</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/pitch" as="div" className="text-center" disabled>
-                  <Link to="/pitch">PITCH</Link>
+                  <Link to="/pitch">Pitch</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/mcp" as="div" className="text-center" disabled>
-                  <Link to="/mychannelprogram">MYCHANNELPROGRAM</Link>
+                  <Link to="/mychannelprogram">MyChannelProgram</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/directory" as="div" className="text-center" disabled>
-                  <Link to="/directory">DIRECTORY</Link>
+                  <Link to="/directory">Directory</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item eventKey="/events" as="div" className="text-center">
-                  <Link to="/events">EVENTS</Link>
+                  <Link to="/events">Events</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item eventKey="/directory" as="div" className="text-center">
-                  <Link to="/register">REGISTER</Link>
+                <NavDropdown.Item eventKey="/register" as="div" className="text-center">
+                  <Link to="/register">Register</Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Item>
@@ -73,5 +107,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header;

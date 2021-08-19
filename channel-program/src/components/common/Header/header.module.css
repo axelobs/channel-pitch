@@ -5,6 +5,12 @@
 
 .navItems{
     padding-top: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navItems > div:nth-child(2){
+    margin: 0 10px;
 }
 
 .menuTogglerContainer span{
@@ -71,7 +77,7 @@
 
 @media(min-width: 992px){
     .navContainer{
-        padding: 30px 40px 10px;
+        padding: 30px 40px 0;
     }
 
     .navbarContent{
