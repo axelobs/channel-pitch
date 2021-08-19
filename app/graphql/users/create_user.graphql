@@ -1,11 +1,13 @@
-mutation($name: String!, $email: String!, $password: String!, $phone1: String, $country: String) {
+mutation CreateUser($name: String!, $email: String!, $password: String!, $phone1: String, $country: String, $company: String, $cp_terms_consent: Boolean) {
   user_create(user: {
     email: $email,
     name: $name,
     password: $password,
     properties: [
       { name: "phone1", value: $phone1 },
-      { name: "country_id", value: $country }
+      { name: "country_id", value: $country },
+      { name: "company", value: $company },
+      { name: "cp_terms_consent", value_boolean: $cp_terms_consent }
     ]
   }) {
     id

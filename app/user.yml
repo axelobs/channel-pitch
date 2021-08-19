@@ -4,3 +4,7 @@ properties:
   - name: country_id
     type: string
     belongs_to: country
+  - name: company
+    type: string
+  - name: cp_terms_consent
+    type: boolean

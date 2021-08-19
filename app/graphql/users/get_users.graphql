@@ -1,0 +1,10 @@
+query Users($email: String) {
+  users (filter: {email: {value: $email}}, per_page: 20) {
+    results {
+      id
+      name
+      created_at
+      properties
+    }
+  }
+}

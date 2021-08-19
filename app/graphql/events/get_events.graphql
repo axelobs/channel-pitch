@@ -1,4 +1,4 @@
-query event($id: ID) {
+query Events($id: ID) {
   events: records(
     per_page: 20,
     filter: {
