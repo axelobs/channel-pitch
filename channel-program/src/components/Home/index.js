@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CPModal from '../common/CPModal';
 import PitchesGrid from '../common/PitchesGrid';
 import Slider from '../common/Slider';
 
@@ -35,11 +36,15 @@ function Home() {
     },
   ]
 
+  const event = { name: 'Channel Program Event', date: '09/18/2021', startTime: '16:00:00' }
+  const [modalOpen, setModalOpen] = useState(false)
+
 
   return (
     <div>
       <Slider slides={slides}/>
       <PitchesGrid pitches={pitches} />
+      <CPModal type='subscribe' event={event} modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 };
