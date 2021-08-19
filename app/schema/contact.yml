@@ -13,3 +13,5 @@ properties:
     type: string
   - name: status
     type: integer
+  - name: company
+    type: string

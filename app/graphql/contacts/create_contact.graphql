@@ -1,4 +1,4 @@
-mutation CreateContact($name: String!, $type_id: Int, $phone: String, $email: String!, $message: String, $status: Int = 1) {
+mutation CreateContact($name: String!, $type_id: Int, $phone: String, $email: String!, $message: String, $company: String, $status: Int = 1) {
   contact: record_create(
     record: {
       table: "contact"
@@ -8,6 +8,7 @@ mutation CreateContact($name: String!, $type_id: Int, $phone: String, $email: St
         { name: "phone", value: $phone }
         { name: "email", value: $email }
         { name: "message", value: $message }
+        { name: "company", value: $company }
         { name: "status", value_int: $status }
       ]
     }
