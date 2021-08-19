@@ -34,5 +34,11 @@ You can now use these scripts in your build script:
 * `npm run build` - build assets in production mode, minified, unused CSS classes purged
 * `npm run build:dev` - build assets in development mode, unminified (full TailwindCSS included)
 
+## Email Notifications
+For PlatformOS's built-in mailing system to work on **staging** instances, it's needed to set up a "test_email" on your staging instance:
+https://documentation.platformos.com/developer-guide/partner-portal/instances/configuring-test-email
+For example, you can set up your personal/work email account on this field; it's the account(s) that will actually receive the notifications sent by your system.
+It's not necessary for production environments.
+
 ## More info
 https://documentation.platformos.com/use-cases/using-rest-endpoints-with-react#step-3-set-up-your-apps-public-folder
