@@ -1,0 +1,12 @@
+---
+to: '{{form.email}}'
+from: 'ChannelProgram <no-reply@channelprogram.com>'
+reply_to: no-reply@channelprogram.com
+subject: 'Event Subscription'
+layout: mailer
+---
+<h1>Hi {{ form.name }}!</h1>
+
+<p>Welcome aboard!</p>
+<p>You have just subscribed to watch the event {{ form.event_name }} that's gonna happen on {{ form.event_date }}.</p>
+<p>See you there! Thank you!</p>
