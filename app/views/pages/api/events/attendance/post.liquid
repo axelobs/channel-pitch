@@ -1,5 +1,5 @@
 ---
-slug: api/v1/events/:id/attendance
+slug: api/v1/events/:id/attendances
 method: post
 layout: ''
 response_headers: >
@@ -46,20 +46,28 @@ response_headers: >
       assign message = "This event doesn't exist, please try another one"
       assign messages = messages | add_to_array: message
     else
-      log userid, type: 'debug'
       assign useridAsInt = userid | to_positive_integer: 0
       log useridAsInt, type: 'debug'
-      graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: userIdAsInt
-      log result_create, type: 'debug'
-      
-      assign createEventAttendanceSuccess = false
-      if result_create.event_attendance != null
-        assign createEventAttendanceSuccess = true
-      endif
-    
-      if createEventAttendanceSuccess == false
-        assign message = "There is a problem creating your event attendance record, please try again later"
+
+      graphql result_eventAttendanceByEventUser = 'events/attendance/get_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+      log result_eventAttendanceByEventUser, type: 'debug'
+      if result_eventAttendanceByEventUser.event_attendances.results.size > 0
+        assign alreadyRegistered = true
+        assign message = "You are already registered to this event"
         assign messages = messages | add_to_array: message
+      else
+        graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+        log result_create, type: 'debug'
+        
+        assign createEventAttendanceSuccess = false
+        if result_create.event_attendance != null
+          assign createEventAttendanceSuccess = true
+        endif
+      
+        if createEventAttendanceSuccess == false
+          assign message = "There is a problem creating your event attendance record, please try again later"
+          assign messages = messages | add_to_array: message
+        endif
       endif
     endif
   endif
@@ -86,7 +94,10 @@ response_headers: >
 
   assign result_create = result_create | add_hash_key: "success", true  
   unless overallSuccess
-    response_status 200
+    response_status 400
+    if alreadyRegistered
+      response_status 200
+    endif
     assign result_create = result_create | add_hash_key: "success", false
     assign result_create = result_create | add_hash_key: "messages", messages
   endunless
