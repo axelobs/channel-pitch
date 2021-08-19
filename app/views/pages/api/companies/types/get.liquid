@@ -7,7 +7,7 @@ response_headers: >
 ---
 
 {% liquid
-  graphql result = 'companies/get_company_types', id: context.params.id
+  graphql result = 'companies/types/get_company_types', id: context.params.id
   unless result.company_types
     response_status 400
   endunless
