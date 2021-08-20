@@ -1,1 +1,16 @@
-{% comment %} empty for now {% endcomment %}
+---
+slug: api/users(/:id)(?email=:email)
+method: get
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result = 'users/get_users', id: context.params.id, email: context.params.email
+  unless result.users
+    response_status 400
+  endunless
+%}
+
+{{- result }}
