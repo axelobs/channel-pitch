@@ -6,6 +6,8 @@ import Register from './components/User/Register';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
 
+import Splash from './components/Splash';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,15 +20,15 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
+
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Splash} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
           <Route path="/" />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

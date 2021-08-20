@@ -5,8 +5,6 @@ import Slider from '../common/Slider';
 import Filters from './Filters';
 import Episode from './Episode';
 
-import styles from './events.module.css';
-
 function Events() {
   let slides = [
     {url: 'https://sweetsoul.sirv.com/BairesDev/ChannelProgram/placeholderBG.jpg',
