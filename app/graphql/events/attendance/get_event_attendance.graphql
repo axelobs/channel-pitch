@@ -1,7 +1,8 @@
-query EventAttendances($event_id: Int, $attendant_id: Int) {
+query EventAttendances($event_id: Int, $attendant_id: Int, $created_at_lte: ISO8601DateTime, $created_at_gte: ISO8601DateTime) {
   event_attendances: records(
     per_page: 20,
     filter: {
+      created_at: {lte: $created_at_lte, gte: $created_at_gte },
       table: { value: "event_attendance" },
       properties: [
         { name: "event_id", value_int: $event_id }

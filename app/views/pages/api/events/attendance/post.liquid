@@ -86,6 +86,21 @@ response_headers: >
 
     graphql notifyEmail = 'emails/first_event_subscription', data: dataToEmail
     log notifyEmail, type: 'debug'
+
+    assign eventAttendanceCreateDate = result_create.event_attendance.created_at
+    assign lteComparisonDate = eventAttendanceCreateDate | add_to_date: 1, 's'
+    assign gteComparisonDate = eventAttendanceCreateDate | replace_regex: 'T.*', 'T00:00:00.000Z'
+    graphql result_eventAttendancesOfDay = 'events/attendance/get_event_attendance', created_at_lte: lteComparisonDate created_at_gte: gteComparisonDate
+    log result_eventAttendancesOfDay, type: 'debug'
+    if result_eventAttendancesOfDay.event_attendances.results.size <= 1
+      comment
+        TODO: BACKGROUND JOB PARA DAQUI 4 HORAS,
+              rodar mutation export
+              rodar query export
+              mandar conteúdo por email, colocando o link do export como anexo
+              OBS.: TEM QUE TESTAR SE O LINK VAI FUNCIONAR, POIS TEM TEMPO DE EXPIRAÇÃO
+      endcomment
+    endif    
   endif
 
   if result_create == null
