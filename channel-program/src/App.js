@@ -5,6 +5,7 @@ import Footer from './components/common/Footer';
 import Register from './components/User/Register';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
+import AboutUs from './components/AboutUs';
 
 import {
   BrowserRouter as Router,
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
+          <Route exact path="/about-us" component={AboutUs} />
           <Route path="/" />
         </Switch>
         <Footer />
