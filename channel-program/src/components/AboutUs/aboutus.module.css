@@ -1,0 +1,149 @@
+.imageBgContainer {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding: 0 35px;
+    text-align: center;
+}
+
+.imageBgContainer h2{
+    font-size: 40px;
+    color: #3d3d3d;
+    font-weight: 700;
+}
+
+.imageBgContainer p{
+    font-size: 18px;
+    color: #737373;
+    font-weight: 600;
+}
+
+.imageBg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.descriptionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100vw;
+    padding: 60px 25px;
+    flex-wrap: wrap;
+}
+
+.descriptionCol{
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.descriptionCol h3{
+    font-size: 34px;
+    font-weight: 700;
+    color: #3d3d3d;
+    margin-bottom: 40px;
+}
+
+.descriptionCol p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #737373;
+    text-align: justify;
+}
+
+.imageGrid {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    max-width: 100%;
+}
+
+.colImgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.colImg{
+    flex: 0 0 auto;
+    max-height: 100%;
+    width: calc(50vw - 37px);
+    object-fit: cover;
+}
+
+.colImg:first-child{
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+
+.colImg:last-child{
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
+.rowImgContainer{
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.rowImg{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 12px;
+}
+
+/* Desktop Rules (lg breakpoint)*/
+@media (min-width: 768px){
+    .imageBgContainer {
+        padding: 0 35px;
+    }
+    .imageBgContainer p{
+        font-weight: 600;
+        color: #3d3d3d;
+    }
+    .descriptionContainer {
+        padding: 60px 35px;
+    }    
+    .colImg{ 
+        width: calc(50vw - 42px);
+    } 
+}
+
+/* Desktop Rules (lg breakpoint)*/
+@media (min-width: 992px){
+    .descriptionCol{
+        flex: 0 1 50%;
+        margin-bottom: 0;
+        text-align: left;
+        padding: 0 8%;
+    }
+    .imageGrid {
+        flex: 0 1 50%;
+    }
+
+    .descriptionCol h3{
+        font-size: 48px;
+    }
+
+    .colImg{
+        width: calc(25vw - 30px);
+    }
+}
