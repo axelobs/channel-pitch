@@ -14,7 +14,7 @@ function Filters() {
           <Form>
             <Row className="p-0 m-0">
               <Col>
-                <Form.Control className={styles.input} placeholder="Search pitch" />
+                <Form.Control className={styles.inputText} placeholder="Search pitch" />
               </Col>
               <Col>
                 <Form.Select className={styles.inputSelect} id="inlineFormCustomSelect">
