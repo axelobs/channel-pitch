@@ -312,9 +312,15 @@ a.dropdown-toggle.nav-link.active{
 }
 
 /* Animation classes styling */
+.defaultTransitions {
+  opacity: 1;
+  transform: translate(0) scale(1);
+  transition: transform 450ms, opacity 400ms, scale 450ms, z-index 800ms;
+}
+
 .showElement {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate(0);
 }
 
 .hideToLeft {
@@ -326,6 +332,11 @@ a.dropdown-toggle.nav-link.active{
 .hideToRight {
   opacity: 0;
   transform: translateX(100%);
+  z-index: -1;
+}
+
+.hideFade {
+  opacity: 0;
   z-index: -1;
 }
 
