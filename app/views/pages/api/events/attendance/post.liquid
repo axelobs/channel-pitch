@@ -1,5 +1,5 @@
 ---
-slug: api/v1/events/:id/attendance
+slug: api/v1/events/:id/attendances
 method: post
 layout: ''
 response_headers: >
@@ -9,12 +9,11 @@ response_headers: >
 {% liquid
   assign userid = null
 
-  graphql result_usersByEmail = 'users/get_users', email: context.params.email
+  graphql result_usersByEmail = 'users/get_users', email: context.params.user_email
   log result_usersByEmail, type: 'debug'
   if result_usersByEmail.users.results.size > 0
     log "Found the user", type: 'debug'
     assign userid = result_usersByEmail.users.results[0].id
-    log userid, type: 'debug'
   else
     log "Didn't find the user", type: 'debug'
   endif
@@ -41,23 +40,52 @@ response_headers: >
     assign message = "There is a problem creating your user record, please try again later"
     assign messages = messages | add_to_array: message
   else
-    graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: userid
-    log result_create, type: 'debug'
-    
-    assign createEventAttendanceSuccess = false
-    if result_create.event_attendance != null
-      assign createEventAttendanceSuccess = true
-    endif
-  
-    if createEventAttendanceSuccess == false
-      assign message = "There is a problem creating your event attendance record, please try again later"
+    graphql result_eventById = 'events/get_events', id: context.params.id
+    log result_eventById, type: 'debug'
+    if result_eventById.events == null or result_eventById.events.results.size == 0
+      assign message = "This event doesn't exist, please try another one"
       assign messages = messages | add_to_array: message
+    else
+      assign useridAsInt = userid | to_positive_integer: 0
+      log useridAsInt, type: 'debug'
+
+      graphql result_eventAttendanceByEventUser = 'events/attendance/get_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+      log result_eventAttendanceByEventUser, type: 'debug'
+      if result_eventAttendanceByEventUser.event_attendances.results.size > 0
+        assign alreadyRegistered = true
+        assign message = "You are already registered to this event"
+        assign messages = messages | add_to_array: message
+      else
+        graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+        log result_create, type: 'debug'
+        
+        assign createEventAttendanceSuccess = false
+        if result_create.event_attendance != null
+          assign createEventAttendanceSuccess = true
+        endif
+      
+        if createEventAttendanceSuccess == false
+          assign message = "There is a problem creating your event attendance record, please try again later"
+          assign messages = messages | add_to_array: message
+        endif
+      endif
     endif
   endif
 
   assign overallSuccess = false
   if userHandlingSuccess and createEventAttendanceSuccess
     assign overallSuccess = true
+
+    assign dbEventData = result_eventById.events.results[0].properties
+    assign formattedEventDate = dbEventData.date | strftime: '%Y-%m-%d %H:%M:%S' | append: " GMT (international date format)"
+    assign dataToEmail = '{}' | parse_json
+    assign dataToEmail = dataToEmail | add_hash_key: "email", context.params.user_email
+    assign dataToEmail = dataToEmail | add_hash_key: "name", context.params.user_name
+    assign dataToEmail = dataToEmail | add_hash_key: "event_name", dbEventData.title
+    assign dataToEmail = dataToEmail | add_hash_key: "event_date", formattedEventDate
+
+    graphql notifyEmail = 'emails/first_event_subscription', data: dataToEmail
+    log notifyEmail, type: 'debug'
   endif
 
   if result_create == null
@@ -66,7 +94,10 @@ response_headers: >
 
   assign result_create = result_create | add_hash_key: "success", true  
   unless overallSuccess
-    response_status 200
+    response_status 400
+    if alreadyRegistered
+      response_status 200
+    endif
     assign result_create = result_create | add_hash_key: "success", false
     assign result_create = result_create | add_hash_key: "messages", messages
   endunless

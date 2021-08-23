@@ -1,0 +1,14 @@
+query CompanyTypes($id: ID) {
+  company_types: records(
+    per_page: 20,
+    filter: {
+      table: { value: "company_type" },
+      id: { value: $id }
+    }
+  ) {
+    results {
+      id
+      properties
+    }
+  }
+}

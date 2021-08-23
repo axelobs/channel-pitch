@@ -1,1 +1,29 @@
-{% comment %} empty for now {% endcomment %}
+---
+slug: api/users(/:id)(?email=:email)
+method: get
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  assign emailParam = context.params.email
+  if emailParam == null
+    assign messages = "An email must be informed" | split: ','
+  else
+    graphql result_getUsers = 'users/get_users', id: context.params.id, email: emailParam
+  endif
+
+  if result_getUsers == null
+    assign result_getUsers = '{}' | parse_json
+  endif
+
+  assign result_getUsers = result_getUsers | add_hash_key: "success", true  
+  unless result_getUsers.users != null
+    response_status 400
+    assign result_getUsers = result_getUsers | add_hash_key: "success", false
+    assign result_getUsers = result_getUsers | add_hash_key: "messages", messages
+  endunless
+%}
+
+{{- result_getUsers }}

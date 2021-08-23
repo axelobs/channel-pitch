@@ -1,0 +1,16 @@
+---
+slug: api/company-types(/:id)
+method: get
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result = 'companies/types/get_company_types', id: context.params.id
+  unless result.company_types
+    response_status 400
+  endunless
+%}
+
+{{- result }}

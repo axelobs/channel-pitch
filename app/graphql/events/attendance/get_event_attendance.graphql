@@ -1,0 +1,17 @@
+query EventAttendances($event_id: Int, $attendant_id: Int) {
+  event_attendances: records(
+    per_page: 20,
+    filter: {
+      table: { value: "event_attendance" },
+      properties: [
+        { name: "event_id", value_int: $event_id }
+        { name: "attendant_id", value_int: $attendant_id }
+      ]
+    }
+  ) {
+    results {
+      id
+      properties
+    }
+  }
+}

@@ -1,10 +1,10 @@
-mutation CreateEventAttendance($event_id: String, $attendant_id: String, $joined: Boolean) {
+mutation CreateEventAttendance($event_id: Int, $attendant_id: Int, $joined: Boolean) {
   event_attendance: record_create(
     record: {
       table: "event_attendance"
       properties: [
-        { name: "event_id", value: $event_id }
-        { name: "attendant_id", value: $attendant_id }
+        { name: "event_id", value_int: $event_id }
+        { name: "attendant_id", value_int: $attendant_id }
         { name: "joined", value: $joined }
       ]
     }

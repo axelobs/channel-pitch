@@ -1,0 +1,18 @@
+{% comment %}
+---
+slug: api/v1/events/:event_id/attendances?attendant_id=:attendant_id
+method: get
+layout: ''
+response_headers: >
+  {% render 'shared/api/headers' %}
+---
+
+{% liquid
+  graphql result = 'events/attendance/get_event_attendance', event_id: context.params.event_id, attendant_id: context.params.attendant_id
+  unless result.event_attendances
+    response_status 400
+  endunless
+%}
+
+{{- result }}
+{% endcomment %}
