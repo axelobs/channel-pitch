@@ -1,0 +1,14 @@
+---
+to: 'carrbrpoa@gmail.com'
+from: 'ChannelProgram <no-reply@channelprogram.com>'
+reply_to: no-reply@channelprogram.com
+subject: 'Users Report'
+layout: mailer
+attachments: >
+  {
+    "userreport_{{form.timestamp}}.zip": {
+      "url": "{{ form.url }}"
+    }
+  }
+---
+Attached, the user report

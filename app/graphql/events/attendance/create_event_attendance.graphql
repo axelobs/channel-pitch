@@ -10,5 +10,6 @@ mutation CreateEventAttendance($event_id: Int, $attendant_id: Int, $joined: Bool
     }
   ) {
     id
+    created_at
   }
 }
