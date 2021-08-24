@@ -1,11 +1,11 @@
 import React from 'react';
 import Home from './components/Home';
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
 import Register from './components/User/Register';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
 import AboutUs from './components/AboutUs';
+
+import Splash from './components/Splash';
 
 import {
   BrowserRouter as Router,
@@ -19,16 +19,15 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Splash} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
           <Route exact path="/about-us" component={AboutUs} />
-          <Route path="/" />
+          <Route component={Home} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

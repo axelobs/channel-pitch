@@ -1,0 +1,35 @@
+{% background priority: 'low', delay: 240, source_name: 'SendUsersReport' %}
+  {% graphql result_postDataExport %}
+      mutation PostDataExport {
+        data_export(users: {per_page: 10000}) {
+            id status
+        }
+      }
+  {% endgraphql %}
+  {% log result_postDataExport, type: 'debug' %}
+{% endbackground %}
+
+{% background priority: 'low', delay: 240.5, max_attempts: 3, source_name: 'GetExportData' %}
+      {% graphql result_getDataExported %}
+      query GetDataExported {
+        data_exports(sort: {created_at: {order: DESC}}, per_page: 1, page: 1) {
+          results {
+            url
+            status
+          }
+        }
+      }
+      {% endgraphql %}
+      {% log result_getDataExported, type: 'debug' %}
+  
+      {% assign firstResultRow = result_getDataExported.data_exports.results | first %}
+      {% if firstResultRow.status == 'done' %}
+        {% assign nowString = "now" | date: "%Y%m%d%H%M%S" %}
+        {% assign dataToReportEmail = '{}' | parse_json %}
+        {% assign dataToReportEmail = dataToReportEmail | add_hash_key: "timestamp", nowString %}
+        {% assign dataToReportEmail = dataToReportEmail | add_hash_key: "url", firstResultRow.url %}
+
+        {% graphql notifyReportEmail = 'emails/user_report_sending', data: dataToReportEmail %}
+        {% log notifyReportEmail, type: 'debug' %}
+      {% endif %}
+  {% endbackground %}

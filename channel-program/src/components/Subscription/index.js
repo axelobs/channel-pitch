@@ -1,4 +1,6 @@
 import React from 'react'
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 import SubscribeForm from '../common/SubscribeForm'
 
 import styles from './subscription.module.css'
@@ -7,6 +9,8 @@ export default function Subscription() {
     const event = { name: 'Channel Program Event', date: '09/18/2021', startTime: '16:00:00' }
 
     return (
+      <>
+        <Header/>
         <div className="container-fluid d-flex flex-wrap p-0">
             <div className={styles.imageCol}>
                 <img
@@ -22,5 +26,7 @@ export default function Subscription() {
                 <SubscribeForm event={event}/>
             </div>
         </div>
+        <Footer/>
+      </>
     )
 }
