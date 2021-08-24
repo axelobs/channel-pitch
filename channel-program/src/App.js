@@ -4,6 +4,7 @@ import Register from './components/User/Register';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
 import AboutUs from './components/AboutUs';
+import Contact from './components/Contact';
 
 import Splash from './components/Splash';
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
           <Route exact path="/about-us" component={AboutUs} />
+          <Route exact path="/contact" component={Contact} />
           <Route component={Home} />
         </Switch>
       </div>
