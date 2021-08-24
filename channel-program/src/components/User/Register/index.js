@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../../common/Header';
+import Footer from '../../common/Footer';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
@@ -29,7 +31,9 @@ function Register() {
   //fetchData();
 
   return (
-    <div className="container-fluid">
+    <>
+    <Header/>
+    <div className="container-fluid py-5">
       <div className="row p-0">
         <div className="col d-flex flex-column justify-content-center align-items-center p-5">
           <h1>CREATE AN ACCOUNT</h1>
@@ -100,6 +104,8 @@ function Register() {
       </div>
 
     </div>
+    <Footer/>
+    </>
   );
 };
 

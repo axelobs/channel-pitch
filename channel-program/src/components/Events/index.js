@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Slider from '../common/Slider';
@@ -16,6 +18,7 @@ function Events() {
 
   return (
     <div>
+      <Header/>
       <Slider slides={slides}/>
       <Container>
         <h2 className="pt-3 pb-3">Previous Events</h2>
@@ -34,6 +37,7 @@ function Events() {
           <Episode/>
         </Row>
       </Container>
+      <Footer/>
     </div>
   );
 };
