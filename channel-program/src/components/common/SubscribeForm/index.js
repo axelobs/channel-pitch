@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Password } from '../../../services/passwordGenerator';
+import { Password } from '../../../utils/passwordGenerator';
 
 import styles from './subscribeForm.module.css'
 
