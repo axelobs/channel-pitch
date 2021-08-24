@@ -46,7 +46,7 @@ export default function Splash() {
               'color':'#f3f3f3',
               'textShadow':'1px 1px 10px black'
             }}
-          >CHANNEL PROGRAM</h2>
+          ><a href="/home" style={{'color':'#fff'}}>CHANNEL PROGRAM</a></h2>
           <h1
             style={{
               'fontSize':'5rem',
