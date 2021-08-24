@@ -1,10 +1,9 @@
 import React from 'react';
 import Home from './components/Home';
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
 import Register from './components/User/Register';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
+import AboutUs from './components/AboutUs';
 
 import Splash from './components/Splash';
 
@@ -27,6 +26,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
+          <Route exact path="/about-us" component={AboutUs} />
           <Route path="/" />
         </Switch>
       </div>
