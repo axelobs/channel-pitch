@@ -3,6 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import {
+  Link
+} from "react-router-dom";
+
 export default function Splash() {
   const [days, setDays] = useState();
   const [hours, setHours] = useState();
@@ -46,7 +50,7 @@ export default function Splash() {
               'color':'#f3f3f3',
               'textShadow':'1px 1px 10px black'
             }}
-          ><a href="/home" style={{'color':'#fff'}}>CHANNEL PROGRAM</a></h2>
+          ><Link to="/home" style={{'color':'#fff'}}>CHANNEL PROGRAM</Link></h2>
           <h1
             style={{
               'fontSize':'5rem',

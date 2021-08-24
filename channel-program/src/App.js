@@ -19,7 +19,6 @@ function App() {
   return (
     <Router>
       <div>
-
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route exact path="/home" component={Home} />
@@ -27,7 +26,7 @@ function App() {
           <Route exact path="/events" component={Events} />
           <Route exact path="/subscribe" component={Subscription} />
           <Route exact path="/about-us" component={AboutUs} />
-          <Route path="/" />
+          <Route component={Home} />
         </Switch>
       </div>
     </Router>
