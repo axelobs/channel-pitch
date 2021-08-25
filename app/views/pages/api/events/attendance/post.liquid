@@ -48,15 +48,16 @@ response_headers: >
     else
       assign useridAsInt = userid | to_positive_integer: 0
       log useridAsInt, type: 'debug'
+      assign eventidAsInt = context.params.id | to_positive_integer: 0
 
-      graphql result_eventAttendanceByEventUser = 'events/attendance/get_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+      graphql result_eventAttendanceByEventUser = 'events/attendance/get_event_attendance', event_id: eventidAsInt, attendant_id: useridAsInt
       log result_eventAttendanceByEventUser, type: 'debug'
       if result_eventAttendanceByEventUser.event_attendances.results.size > 0
         assign alreadyRegistered = true
         assign message = "You are already registered to this event"
         assign messages = messages | add_to_array: message
       else
-        graphql result_create = 'events/attendance/create_event_attendance', event_id: context.params.id, attendant_id: useridAsInt
+        graphql result_create = 'events/attendance/create_event_attendance', event_id: eventidAsInt, attendant_id: useridAsInt
         log result_create, type: 'debug'
         
         assign createEventAttendanceSuccess = false
