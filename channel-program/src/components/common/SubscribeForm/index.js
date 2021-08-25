@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Password } from '../../../utils/passwordGenerator';
-import { postEventAttendance } from '../../../services/eventSubscription';
+import { postEventAttendance } from '../../../services/event';
 
 import styles from './subscribeForm.module.css'
 
@@ -10,15 +10,19 @@ export default function SubscribeForm({ event }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     async function onSubmit(data) {
-        try {
+        /* try {
             const response = await postEventAttendance(data, 1); //TODO: dummy event with id 1 here
             console.log(response);
         } catch (err) {
             console.error(err);
-        }
+        } */
+        await postEventAttendance(data, 1)
+                .then(r => {
+                    console.log(r)
+                    setSubscribed(true)
+                })
+                .catch(e => console.error(e))
     }
-
-    console.log(errors);
     let pass = Password.generate(16)
 
     function getMessageClass() {
