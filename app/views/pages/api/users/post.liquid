@@ -7,11 +7,30 @@ response_headers: >
 ---
 
 {% liquid
-  graphql result = 'users/create_user', email: context.params.email, name: context.params.name, password: context.params.password, phone1: context.params.phone1, country: context.params.country, company: context.params.company, cp_terms_consent: context.params.terms_consent, cp_privacy_consent: privacy_consent
+  graphql result_createUser = 'users/create_user', email: context.params.email, name: context.params.name, password: context.params.password, phone1: context.params.phone1, country: context.params.country, company: context.params.company, cp_terms_consent: context.params.terms_consent, cp_privacy_consent: privacy_consent
+  log result_createUser, type: 'debug'
 
-  unless result.user_create
+  assign return = '{}' | parse_json
+  assign return = return | add_hash_key: "success", false
+  assign messages = "" | split: ','
+
+  if result_createUser.user_create
+    assign return = return | add_hash_key: "success", true  
+    assign dataToEmail = '{}' | parse_json
+    assign dataToEmail = dataToEmail | add_hash_key: "email", context.params.email
+    assign dataToEmail = dataToEmail | add_hash_key: "name", context.params.name
+    graphql notifyEmail = 'emails/user_registration', data: dataToEmail
+    log notifyEmail, type: 'debug'
+  elsif result_createUser.errors.size > 0
+    assign errorMessagesFromDB = result_createUser.errors | map: 'message'
+    assign messages = messages | concat: errorMessagesFromDB
+    assign return = return | add_hash_key: "messages", messages
+  else
+    assign message = "There is a problem creating your user register right now, please try again later"
+    assign messages = messages | add_to_array: message
+    assign return = return | add_hash_key: "messages", messages
     response_status 400
-  endunless
+  endif
 %}
 
-{{- result }}
+{{- return }}
