@@ -1,0 +1,97 @@
+.contactContainer{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+
+.formContainer{
+    padding: 40px 35px;
+    flex: 0 0 100%;
+    order: 2;
+}
+
+.formContainer h2{
+    font-size: 32px;
+    color: #3d3d3d;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.iconRow{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: 10px 0;
+}
+
+.iconRow p{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3d3d3d;
+}
+
+.icon{
+    width: 22px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.contactInput:nth-child(even){
+    flex: 1 1 100%;
+    margin-bottom: 15px;
+}
+
+.contactInput:nth-child(odd){
+    flex: 1 1 100%;
+    margin-bottom: 15px;
+}
+
+.mapContainer{
+    background: #EBEBEB;
+    flex: 0 0 100%;
+    order: 1;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerDot{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3d3d3d;
+    box-shadow: 0 0 0 20px #3d3d3d80;
+}
+
+
+
+/* ---------- Desktop Rules (Bootstrap lg breakpoint) ---------- */
+
+@media(min-width: 992px) {
+    .formContainer{
+        padding: 40px 60px;
+        flex: 0 0 50%;
+        order: 1;
+    }
+
+    .mapContainer{
+        flex: 0 0 50%;
+        order: 2;
+        height: 70vh;
+    }
+
+    .contactInput:nth-child(even){
+        flex: 1 1 40%;
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .contactInput:nth-child(odd){
+        flex: 1 1 40%;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+}
