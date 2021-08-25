@@ -7,7 +7,7 @@ response_headers: >
 ---
 
 {% liquid
-  graphql result = 'users/create_user', email: context.params.email, name: context.params.name, password: context.params.password, phone1: context.params.phone1, country: context.params.country, company: context.params.company, cp_terms_consent: context.params.terms_consent
+  graphql result = 'users/create_user', email: context.params.email, name: context.params.name, password: context.params.password, phone1: context.params.phone1, country: context.params.country, company: context.params.company, cp_terms_consent: context.params.terms_consent, cp_privacy_consent: privacy_consent
 
   unless result.user_create
     response_status 400
