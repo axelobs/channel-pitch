@@ -1,7 +1,7 @@
 ---
 to: '{{form.email}}'
-from: 'ChannelProgram <no-reply@channelprogram.com>'
-reply_to: no-reply@channelprogram.com
+from: '{{context.constants.email_event_subscription_from_name}} <{{context.constants.email_event_subscription_from}}>'
+reply_to: '{{context.constants.email_event_subscription_reply_to}}'
 subject: 'Event Subscription'
 layout: mailer
 ---

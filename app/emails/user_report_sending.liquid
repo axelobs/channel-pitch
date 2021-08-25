@@ -1,7 +1,7 @@
 ---
-to: 'carrbrpoa@gmail.com'
-from: 'ChannelProgram <no-reply@channelprogram.com>'
-reply_to: no-reply@channelprogram.com
+to: '{{context.constants.email_user_report_sending_to}}'
+from: '{{context.constants.email_user_report_sending_from_name}} <{{context.constants.email_user_report_sending_from}}>'
+reply_to: '{{context.constants.email_user_report_sending_reply_to}}'
 subject: 'Users Report'
 layout: mailer
 attachments: >
