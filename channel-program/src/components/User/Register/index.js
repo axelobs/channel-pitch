@@ -12,23 +12,12 @@ function Register() {
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post('/api/events/attendance', data);
+      const response = await axios.post('/api/books', data);
       console.log(response);
     } catch (err) {
       console.error(err);
     }
   }
-
-  async function fetchData() {
-    try {
-      const result = await axios.get('/api/books');
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  //fetchData();
 
   return (
     <>
@@ -47,7 +36,7 @@ function Register() {
                     name="title"
                     placeholder="First Name"
                     autoComplete="off"
-                    {...register("event_id", {
+                    {...register("title", {
                       required: "Required",
                     })}
                   />
@@ -58,7 +47,7 @@ function Register() {
                     name="subtitle"
                     placeholder="Last Name"
                     autoComplete="off"
-                    {...register("attendant_id", {
+                    {...register("subtitle", {
                       required: "Required",
                     })}
                   />
@@ -93,7 +82,6 @@ function Register() {
                   <button type="submit" className="btn btn-primary btn-block mt-3 w-100" disabled={formState.isSubmitting}>
                     Sign up
                   </button>
-                  <button onClick={fetchData} className="btn btn-secondary btn-block mt-3 w-100">Get records</button>
                 </div>
               </div>
           </form>

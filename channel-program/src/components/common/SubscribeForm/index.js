@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Password } from '../../../utils/passwordGenerator';
+import axios from 'axios';
+import styles from './subscribeForm.module.css';
 
-import styles from './subscribeForm.module.css'
+axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
+axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
 
 export default function SubscribeForm({ event }) {
     const [subscribed, setSubscribed] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
+
+    async function onSubmit(data) {
         console.log(data)
         setSubscribed(!subscribed)
+        try {
+          const response = await axios.post('/api/users/create', data);
+          console.log(response);
+        } catch (err) {
+          console.error(err);
+        }
     };
 
     console.log(errors);
