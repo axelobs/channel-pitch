@@ -1,17 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './contact.module.css'
 import { useForm } from 'react-hook-form';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import { getCompanyTypes, postContact } from '../../services/user';
 
 
 
 
 export default function Contact() {
+    const [types, setTypes] = useState([])
     const { register, handleSubmit, formState } = useForm();
-    const onSubmit = data => {
-        console.log(data)
+
+    const onSubmit = async (data) => {
+        data.type_id = parseInt(data.type_id)
+        postContact(data)
+            .then(r => {
+                console.log(r)
+            })
+            .catch(e => console.error(e))
     };
+
+    function getTypeOptions(){
+        getCompanyTypes()
+            .then(r => {
+                setTypes(r.data.company_types.results)
+            })
+            .catch(e => console.error(e))
+            
+        return
+    }
+
+    
+    useEffect(() => {
+        getTypeOptions()
+    }, [])
 
     return (
         <>
@@ -66,12 +89,13 @@ export default function Contact() {
                             <select
                                 className={styles.contactInput + " cpInput"}
                                 placeholder="Company Type"
-                                {...register("company_type", { required: true })}
+                                {...register("type_id", { required: true })}
                             >
                                 <option value="">Company Type</option>
-                                <option value="1">Type 1</option>
-                                <option value="2">Type 2</option>
-                                <option value="3">Type 3</option>
+                                {types.length > 1
+                                    ? types.map(t => <option key={t.id} value={t.properties.type_id}>{t.properties.description}</option>)
+                                    : null
+                                }
                             </select>
                             <textarea
                                 className="cpInput col-12 mt-1"

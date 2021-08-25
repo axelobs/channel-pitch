@@ -80,17 +80,20 @@
     .mapContainer{
         flex: 0 0 50%;
         order: 2;
-        height: 70vh;
+        min-height: 70vh;
+        height: 100%;
     }
 
     .contactInput:nth-child(even){
-        flex: 1 1 40%;
+        flex: 0 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
         margin-left: 10px;
         margin-bottom: 15px;
     }
     
     .contactInput:nth-child(odd){
-        flex: 1 1 40%;
+        flex: 0 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
         margin-right: 10px;
         margin-bottom: 15px;
     }
