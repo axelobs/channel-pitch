@@ -33,10 +33,10 @@ function Register() {
                 <div className="col">
                   <input
                     className="form-control m-0"
-                    name="title"
+                    name="name"
                     placeholder="First Name"
                     autoComplete="off"
-                    {...register("title", {
+                    {...register("name", {
                       required: "Required",
                     })}
                   />
@@ -44,10 +44,10 @@ function Register() {
                 <div className="col">
                   <input
                     className="form-control m-0"
-                    name="subtitle"
+                    name="lastname"
                     placeholder="Last Name"
                     autoComplete="off"
-                    {...register("subtitle", {
+                    {...register("lastname", {
                       required: "Required",
                     })}
                   />
@@ -57,7 +57,12 @@ function Register() {
                 <div className="col mt-3">
                   <input
                     className="form-control m-0"
+                    name="company"
                     placeholder="Company Name"
+                    autoComplete="off"
+                    {...register("company", {
+                      required: "Required",
+                    })}
                   />
                 </div>
               </div>
@@ -65,7 +70,13 @@ function Register() {
                 <div className="col mt-3">
                   <input
                     className="form-control m-0"
+                    name="email"
+                    type="email"
                     placeholder="Email Address"
+                    autoComplete="off"
+                    {...register("email", {
+                      required: "Required",
+                    })}
                   />
                 </div>
               </div>
@@ -73,7 +84,13 @@ function Register() {
                 <div className="col mt-3">
                   <input
                     className="form-control m-0"
+                    name="password"
+                    type="password"
                     placeholder="Password"
+                    autoComplete="off"
+                    {...register("password", {
+                      required: "Required",
+                    })}
                   />
                 </div>
               </div>

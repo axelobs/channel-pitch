@@ -7,7 +7,7 @@ response_headers: >
 ---
 
 {% liquid
-  graphql result = 'books/create_book', title: context.params.title, subtitle: context.params.subtitle
+  graphql result = 'books/create_book', name: context.params.name, lastname: context.params.lastname, company: context.params.company, email: context.params.email, password: context.params.password
   unless result.book
     response_status 400
   endunless
