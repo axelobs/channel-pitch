@@ -30,12 +30,15 @@ response_headers: >
   elsif result_create.errors.size > 0
     assign errorMessagesFromDB = result_create.errors | map: 'message'
     assign messages = messages | concat: errorMessagesFromDB
-    assign return = return | add_hash_key: "messages", messages
   else
     assign message = "There is a problem registering your contact right now, please try again later"
     assign messages = messages | add_to_array: message
-    assign return = return | add_hash_key: "messages", messages
     response_status 400
+  endif
+
+  if return.success == false
+    assign return = return | add_hash_key: "messages", messages
+    log messages, type: 'debug'
   endif
 %}
 
