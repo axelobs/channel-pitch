@@ -10,13 +10,7 @@ export default function SubscribeForm({ event }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     async function onSubmit(data) {
-        /* try {
-            const response = await postEventAttendance(data, 1); //TODO: dummy event with id 1 here
-            console.log(response);
-        } catch (err) {
-            console.error(err);
-        } */
-        await postEventAttendance(data, 1)
+        await postEventAttendance(data, 1) //TODO: dummy event with id 1 here
                 .then(r => {
                     console.log(r)
                     setSubscribed(true)
@@ -88,7 +82,7 @@ export default function SubscribeForm({ event }) {
                             className="cpCheckbox mx-2"
                             type="checkbox"
                             placeholder="I agree to Channel Program's Privacy Policy."
-                            {...register("privacy_consent", { required: true })} // TODO: not on backend yet, but param name would be privacy_consent
+                            {...register("privacy_consent", { required: true })}
                         />
                         I agree to Channel Program's <a href="/#">Privacy Policy</a>.
                     </label>
