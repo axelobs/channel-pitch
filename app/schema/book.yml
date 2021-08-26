@@ -1,6 +1,12 @@
 name: book
 properties:
-  - name: title
+  - name: name
     type: string
-  - name: subtitle
+  - name: lastname
+    type: string
+  - name: company
+    type: string
+  - name: email
+    type: string
+  - name: password
     type: string

@@ -1,10 +1,13 @@
-mutation($title: String!, $subtitle: String) {
+mutation($name: String!, $lastname: String, $company: String, $email: String, $password: String) {
   book: record_create(
     record: {
       table: "book"
       properties: [
-        { name: "title", value: $title }
-        { name: "subtitle", value: $subtitle }
+        { name: "name", value: $name }
+        { name: "lastname", value: $lastname }
+        { name: "company", value: $company }
+        { name: "email", value: $email }
+        { name: "password", value: $password }
       ]
     }
   ) {
