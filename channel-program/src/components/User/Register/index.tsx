@@ -10,7 +10,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
 function Register() {
   const { register, handleSubmit, formState } = useForm();
 
-  async function onSubmit(data) {
+  async function onSubmit(data: any) {
     try {
       const response = await axios.post('/api/events/attendance', data);
       console.log(response);
@@ -44,7 +44,6 @@ function Register() {
                 <div className="col">
                   <input
                     className="form-control m-0"
-                    name="title"
                     placeholder="First Name"
                     autoComplete="off"
                     {...register("event_id", {
@@ -55,7 +54,6 @@ function Register() {
                 <div className="col">
                   <input
                     className="form-control m-0"
-                    name="subtitle"
                     placeholder="Last Name"
                     autoComplete="off"
                     {...register("attendant_id", {
