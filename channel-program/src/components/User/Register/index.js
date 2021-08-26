@@ -32,7 +32,7 @@ function Register() {
               <div className="row">
                 <div className="col">
                   <input
-                    className="form-control m-0"
+                    className="cpInput my-2"
                     name="name"
                     placeholder="First Name"
                     autoComplete="off"
@@ -43,7 +43,7 @@ function Register() {
                 </div>
                 <div className="col">
                   <input
-                    className="form-control m-0"
+                    className="cpInput my-2"
                     name="lastname"
                     placeholder="Last Name"
                     autoComplete="off"
@@ -56,7 +56,7 @@ function Register() {
               <div className="row">
                 <div className="col mt-3">
                   <input
-                    className="form-control m-0"
+                    className="cpInput my-2"
                     name="company"
                     placeholder="Company Name"
                     autoComplete="off"
@@ -65,11 +65,9 @@ function Register() {
                     })}
                   />
                 </div>
-              </div>
-              <div className="row">
                 <div className="col mt-3">
                   <input
-                    className="form-control m-0"
+                    className="cpInput my-2"
                     name="email"
                     type="email"
                     placeholder="Email Address"
@@ -83,7 +81,7 @@ function Register() {
               <div className="row">
                 <div className="col mt-3">
                   <input
-                    className="form-control m-0"
+                    className="cpInput my-2"
                     name="password"
                     type="password"
                     placeholder="Password"
@@ -96,7 +94,7 @@ function Register() {
               </div>
               <div className="row">
                 <div className="col">
-                  <button type="submit" className="btn btn-primary btn-block mt-3 w-100" disabled={formState.isSubmitting}>
+                  <button type="submit" className="cpMainBtn mt-5 w-100" disabled={formState.isSubmitting}>
                     Sign up
                   </button>
                 </div>
