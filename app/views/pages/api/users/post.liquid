@@ -14,22 +14,27 @@ response_headers: >
   assign return = return | add_hash_key: "success", false
   assign messages = "" | split: ','
 
+  assign dataToEmail = '{}' | parse_json
+  assign dataToEmail = dataToEmail | add_hash_key: "email", context.params.email
+  assign dataToEmail = dataToEmail | add_hash_key: "name", context.params.name
+
   if result_createUser.user_create
     assign return = return | add_hash_key: "success", true  
-    assign dataToEmail = '{}' | parse_json
-    assign dataToEmail = dataToEmail | add_hash_key: "email", context.params.email
-    assign dataToEmail = dataToEmail | add_hash_key: "name", context.params.name
     graphql notifyEmail = 'emails/user_registration', data: dataToEmail
     log notifyEmail, type: 'debug'
   elsif result_createUser.errors.size > 0
     assign errorMessagesFromDB = result_createUser.errors | map: 'message'
     assign messages = messages | concat: errorMessagesFromDB
-    assign return = return | add_hash_key: "messages", messages
   else
-    assign message = "There is a problem creating your user register right now, please try again later"
+    assign message = "There is a problem creating your user registration right now, please try again later"
     assign messages = messages | add_to_array: message
-    assign return = return | add_hash_key: "messages", messages
     response_status 400
+  endif
+
+  if return.success == false
+    assign return = return | add_hash_key: "messages", messages
+    log messages, type: 'debug'
+    log dataToEmail, type: 'debug'
   endif
 %}
 
