@@ -209,6 +209,11 @@ a.dropdown-toggle.nav-link.active{
   opacity: .75;
 }
 
+.cpInput[invalid="true"] {
+  border-color: crimson;
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.3);
+}
+
 .cpInput:focus-visible, 
 .cpSelect:focus-visible,
 .cpSelect:focus{
@@ -311,6 +316,10 @@ a.dropdown-toggle.nav-link.active{
   padding: 13px 90px;
 }
 
+.cpMainBtn:hover {
+  color: #fcfcfc;
+}
+
 /* Animation classes styling */
 .defaultTransitions {
   opacity: 1;
@@ -327,6 +336,7 @@ a.dropdown-toggle.nav-link.active{
   opacity: 0;
   transform: translateX(-100%);
   z-index: -1;
+  height: 50vh;
 }
 
 .hideToRight {
