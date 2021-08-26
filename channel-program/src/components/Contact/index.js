@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import styles from './contact.module.css'
+import React, { useEffect, useState } from 'react';
+import styles from './contact.module.css';
 import { useForm } from 'react-hook-form';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
@@ -10,56 +10,56 @@ import Loader from '../../utils/loader';
 
 
 export default function Contact() {
-    const [types, setTypes] = useState([])
-    const [showLoader, setShowLoader] = useState(false)
-    const [contactSent, setContactSent] = useState(false)
+    const [types, setTypes] = useState([]);
+    const [showLoader, setShowLoader] = useState(false);
+    const [contactSent, setContactSent] = useState(false);
     const { register, handleSubmit, formState } = useForm();
 
     const onSubmit = (data) => {
         if (Object.keys(formState.errors).length > 0) {
-            return
+            return;
         }
 
-        setShowLoader(true)
-        data.type_id = parseInt(data.type_id)
+        setShowLoader(true);
+        data.type_id = parseInt(data.type_id);
 
         postContact(data)
             .then(r => {
-                setContactSent(true)
-                setShowLoader(false)
+                setContactSent(true);
+                setShowLoader(false);
             })
-            .catch(e => console.error(e))
+            .catch(e => console.error(e));
     };
 
     function getTypeOptions() {
         getCompanyTypes()
             .then(r => {
-                setTypes(r.data.company_types.results)
+                setTypes(r.data.company_types.results);
             })
-            .catch(e => console.error(e))
+            .catch(e => console.error(e));
 
-        return
+        return;
     }
 
     function getMessageClass() {
         if (contactSent) {
-            return 'showElement'
+            return 'showElement';
         } else {
-            return 'hideToRight'
+            return 'hideToRight';
         }
     }
 
     function getFormClass() {
         if (!contactSent) {
-            return 'showElement'
+            return 'showElement';
         } else {
-            return 'hideToLeft'
+            return 'hideToLeft';
         }
     }
 
     useEffect(() => {
-        getTypeOptions()
-    }, [])
+        getTypeOptions();
+    }, []);
 
     return (
         <>
@@ -158,5 +158,5 @@ export default function Contact() {
             </div>
             <Footer />
         </>
-    )
+    );
 }
