@@ -1,0 +1,13 @@
+---
+to: '{{context.constants.email_contact_us_to}}'
+from: '{{context.constants.email_contact_us_name}} <{{context.constants.email_contact_us_from}}>'
+reply_to: '{{form.email}}'
+subject: 'Contact Us - New Contact'
+layout: mailer
+---
+<h2>New contact received from:</h2>
+<p>Name: {{ form.name }}</p>
+<p>Company: {{ form.company }}</p>
+<p>Company Type: {{ form.company_type }}</p>
+<br/><br/>
+<p>{{form.message}}</p>
