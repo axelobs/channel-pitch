@@ -248,6 +248,11 @@ a.dropdown-toggle.nav-link.active{
   box-shadow: none !important;
 }
 
+.cpCheckbox[invalid="true"]{
+  border-color: crimson;
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.4)!important;
+}
+
 .cpCheckbox:after {
   content: '';
   display: block;

@@ -7,18 +7,11 @@ import styles from './subscribeForm.module.css'
 
 export default function SubscribeForm({ event }) {
     const [subscribed, setSubscribed] = useState(false)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState } = useForm();
     
     async function onSubmit(data) {
-        /* try {
-            const response = await postEventAttendance(data, 1); //TODO: dummy event with id 1 here
-            console.log(response);
-        } catch (err) {
-            console.error(err);
-        } */
         await postEventAttendance(data, 1)
                 .then(r => {
-                    console.log(r)
                     setSubscribed(true)
                 })
                 .catch(e => console.error(e))
@@ -52,12 +45,14 @@ export default function SubscribeForm({ event }) {
                         className="cpInput my-2"
                         type="text"
                         placeholder="Name *"
+                        invalid={formState.isSubmitted && formState.errors.user_name ? "true" : "false"}
                         {...register("user_name", { required: true })}
                     />
                     <input
                         className="cpInput my-2"
                         type="text"
                         placeholder="Email *"
+                        invalid={formState.isSubmitted && formState.errors.user_email ? "true" : "false"}
                         {...register("user_email", { required: true, pattern: /^\S+@\S+$/i })}
                     />
                     <input
@@ -72,6 +67,7 @@ export default function SubscribeForm({ event }) {
                         className="cpInput my-2"
                         type="text"
                         placeholder="Company *"
+                        invalid={formState.isSubmitted && formState.errors.company ? "true" : "false"}
                         {...register("company", { required: true })}
                     />
                     <label className={styles.formCheckContainer}>
@@ -79,7 +75,11 @@ export default function SubscribeForm({ event }) {
                             className="cpCheckbox mx-2"
                             type="checkbox"
                             placeholder="I agree to Channel Program's Terms of Service."
-                            {...register("terms_consent", { required: true })}
+                            invalid={formState.isSubmitted && formState.errors.terms_consent ? "true" : "false"}
+                            {...register("terms_consent", { 
+                                required: true,
+                                validate: v => v === true
+                            })}
                         />
                         I agree to Channel Program's <a href="/#">Terms of Service</a>.
                     </label>
@@ -88,7 +88,11 @@ export default function SubscribeForm({ event }) {
                             className="cpCheckbox mx-2"
                             type="checkbox"
                             placeholder="I agree to Channel Program's Privacy Policy."
-                            {...register("privacy_consent", { required: true })} // TODO: not on backend yet, but param name would be privacy_consent
+                            invalid={formState.isSubmitted && formState.errors.privacy_consent ? "true" : "false"}
+                            {...register("privacy_consent", { 
+                                required: true,
+                                validate: v => v === true
+                            })} // TODO: not on backend yet, but param name would be privacy_consent
                         />
                         I agree to Channel Program's <a href="/#">Privacy Policy</a>.
                     </label>
