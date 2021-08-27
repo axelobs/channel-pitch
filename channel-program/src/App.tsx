@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './components/Home';
-import Register from './components/User/Register';
+import Register from './components/User/Register/index';
 import Events from './components/Events';
 import Subscription from './components/Subscription';
 import AboutUs from './components/AboutUs';
