@@ -8,15 +8,38 @@ response_headers: >
 
 {% liquid
   graphql result_create = 'contacts/create_contact', name: context.params.name, type_id: context.params.type_id, phone: context.params.phone, email: context.params.email, message: context.params.message, company: context.params.company
+  log result_create, type: 'debug'
 
   comment TODO: send to zoho 
   endcomment
 
-  assign result_create = result_create | add_hash_key: "success", true  
-  unless result_create
+  assign return = '{}' | parse_json
+  assign return = return | add_hash_key: "success", false
+  assign messages = "" | split: ','
+
+  if result_create.contact
+    assign return = return | add_hash_key: "success", true  
+    assign dataToEmail = '{}' | parse_json
+    assign dataToEmail = dataToEmail | add_hash_key: "email", context.params.email
+    assign dataToEmail = dataToEmail | add_hash_key: "name", context.params.name
+    assign dataToEmail = dataToEmail | add_hash_key: "company", context.params.company
+    assign dataToEmail = dataToEmail | add_hash_key: "company_type", context.params.company_type
+    assign dataToEmail = dataToEmail | add_hash_key: "message", context.params.message
+    graphql notifyEmail = 'emails/contact_us', data: dataToEmail
+    log notifyEmail, type: 'debug'
+  elsif result_create.errors.size > 0
+    assign errorMessagesFromDB = result_create.errors | map: 'message'
+    assign messages = messages | concat: errorMessagesFromDB
+  else
+    assign message = "There is a problem registering your contact right now, please try again later"
+    assign messages = messages | add_to_array: message
     response_status 400
-    assign result_create = result_create | add_hash_key: "success", false
-  endunless
+  endif
+
+  if return.success == false
+    assign return = return | add_hash_key: "messages", messages
+    log messages, type: 'error'
+  endif
 %}
 
-{{- result_create }}
+{{- return }}
