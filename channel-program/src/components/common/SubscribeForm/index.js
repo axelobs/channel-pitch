@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Password } from '../../../utils/passwordGenerator';
+import { postEventAttendance } from '../../../services/event';
 
 import styles from './subscribeForm.module.css'
 
 export default function SubscribeForm({ event }) {
     const [subscribed, setSubscribed] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        console.log(data)
-        setSubscribed(!subscribed)
-    };
-
-    console.log(errors);
+    
+    async function onSubmit(data) {
+        await postEventAttendance(data, 1) //TODO: dummy event with id 1 here
+                .then(r => {
+                    console.log(r)
+                    setSubscribed(true)
+                })
+                .catch(e => console.error(e))
+    }
     let pass = Password.generate(16)
-
 
     function getMessageClass() {
         if (subscribed) {
@@ -43,13 +46,13 @@ export default function SubscribeForm({ event }) {
                         className="cpInput my-2"
                         type="text"
                         placeholder="Name *"
-                        {...register("Name", { required: true })}
+                        {...register("user_name", { required: true })}
                     />
                     <input
                         className="cpInput my-2"
                         type="text"
                         placeholder="Email *"
-                        {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+                        {...register("user_email", { required: true, pattern: /^\S+@\S+$/i })}
                     />
                     <input
                         className="cpInput my-2"
@@ -57,20 +60,20 @@ export default function SubscribeForm({ event }) {
                         placeholder="Password"
                         hidden
                         value={pass}
-                        {...register("pass")}
+                        {...register("user_pass")}
                     />
                     <input
                         className="cpInput my-2"
                         type="text"
                         placeholder="Company *"
-                        {...register("Company", { required: true })}
+                        {...register("company", { required: true })}
                     />
                     <label className={styles.formCheckContainer}>
                         <input
                             className="cpCheckbox mx-2"
                             type="checkbox"
                             placeholder="I agree to Channel Program's Terms of Service."
-                            {...register("ToS", { required: true })}
+                            {...register("terms_consent", { required: true })}
                         />
                         I agree to Channel Program's <a href="/#">Terms of Service</a>.
                     </label>
@@ -79,7 +82,7 @@ export default function SubscribeForm({ event }) {
                             className="cpCheckbox mx-2"
                             type="checkbox"
                             placeholder="I agree to Channel Program's Privacy Policy."
-                            {...register("privacy", { required: true })}
+                            {...register("privacy_consent", { required: true })}
                         />
                         I agree to Channel Program's <a href="/#">Privacy Policy</a>.
                     </label>
