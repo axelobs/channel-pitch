@@ -14,7 +14,7 @@ export default function Subscription() {
         <div className="container-fluid d-flex flex-wrap p-0">
             <div className={styles.imageCol}>
                 <img
-                    src="/Media/imagePlaceholder.jpg"
+                    src="https://sweetsoul.sirv.com/BairesDev/ChannelProgram/Image.jpg"
                     className={styles.imagePos}
                     alt="placeholder"
                 />

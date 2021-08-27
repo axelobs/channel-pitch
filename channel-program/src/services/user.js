@@ -12,6 +12,16 @@ async function onSubmit(endpoint, data) {
     }
 }
 
+async function postContact(data){
+    return axios.post('/api/contacts', data)
+}
+
+async function getCompanyTypes(){
+    return axios.get('/api/company-types')
+}
+
 export {
-    onSubmit
+    onSubmit,
+    postContact,
+    getCompanyTypes
 }
