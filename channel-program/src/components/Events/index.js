@@ -8,12 +8,19 @@ import Filters from './Filters';
 import Episode from './Episode';
 
 function Events() {
+  let eventDate = new Date()
+  eventDate.setDate(eventDate.getDate() + 10)
+  let eventDate2 = new Date()
+  eventDate2.setTime(eventDate2.getTime() + 600000)
+
+  const event = { name: 'Channel Program Event', date: eventDate, startTime: '16:00:00', id: '3asd43asd4' }
+
   let slides = [
     {url: 'https://sweetsoul.sirv.com/BairesDev/ChannelProgram/placeholderBG.jpg',
-      imgAlt: '01/06/2021', title: 'Featured Event',
+      imgAlt: 'First slide', title: 'Grow your channel',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      path: '/', buttonText: 'Subscribe Now'
-    }
+      path: '/', buttonText: 'Subscribe Now', event: event
+    },
   ]
 
   return (
