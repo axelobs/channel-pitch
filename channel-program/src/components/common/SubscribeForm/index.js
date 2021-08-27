@@ -10,7 +10,7 @@ export default function SubscribeForm({ event }) {
     const { register, handleSubmit, formState } = useForm();
     
     async function onSubmit(data) {
-        await postEventAttendance(data, 1)
+        await postEventAttendance(data, 1) //TODO: dummy event with id 1 here
                 .then(r => {
                     setSubscribed(true)
                 })
