@@ -1,0 +1,12 @@
+---
+to: '{{form.email}}'
+from: '{{context.constants.email_user_registration_from_name}} <{{context.constants.email_user_registration_from}}>'
+reply_to: '{{context.constants.email_user_registration_reply_to}}'
+subject: 'Registration'
+layout: mailer
+---
+<h1>Hi {{ form.name }}!</h1>
+
+<p>Welcome aboard!</p>
+<p>You have just registered to ChannelProgram platform.</p>
+<p>Thank you!</p>

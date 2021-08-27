@@ -8,3 +8,5 @@ properties:
     type: string
   - name: cp_terms_consent
     type: boolean
+  - name: cp_privacy_consent
+    type: boolean
