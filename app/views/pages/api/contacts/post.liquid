@@ -38,7 +38,7 @@ response_headers: >
 
   if return.success == false
     assign return = return | add_hash_key: "messages", messages
-    log messages, type: 'debug'
+    log messages, type: 'error'
   endif
 %}
 
